@@ -1,19 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
-import Header from './header';
+import Header from './Header';
+import Footer from './Footer';
+import About from './About';
+import Team from './Team';
 import { BrowserRouter,Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <div> 
       
       <BrowserRouter>
-      <Header/>
+      <Header/><br/><br/><br/><br/>
+      <About/><br/><br/><br/><br/>
+      <Team/><br/><br/><br/><br/>
+      <Footer/>
+             
       <Routes>
     <Route path="/" exact component={Header} />
+    <Route path="/" exact component={Footer} />
+    <Route path="/" exact component={About} />
+    <Route path="/" exact component={Team} />
     </Routes>
     </BrowserRouter>
 
-      {/* <Route path="/fertilizer" component={Fertilizer} />
+{/* 
+      <Route path="/fertilizer" component={Fertilizer} />
       <Route path="/workers" component={Workers} />  */}
     </div>
 
