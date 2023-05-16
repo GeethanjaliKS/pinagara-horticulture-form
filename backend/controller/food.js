@@ -27,3 +27,24 @@ export const addfood =  async (req,res) => {
         console.log(err)
     }
 }
+
+// Backend API route to get all member details
+export const viewfood= async (req, res) => {
+    try {
+      const foods = await food.find();
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+      res.status(200).json({
+        status: 'success',
+        data: {
+          foods,
+        },
+      });
+    } catch (err) {
+      res.status(500).json({
+        status: 'error',
+        message: err.message,
+      });
+    }
+  };
+  
+  

@@ -3,19 +3,12 @@ import { NavLink,BrowserRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import { List } from 'react-bootstrap-icons';
 import pic from './images/Logo.png'
+import './App.css';
 
 
 
 const Admin = () => {
-  // const [data, setData] = useState([]);
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const response = await fetch("http://your-server-url.com/data");
-  //     const jsonData = await response.json();
-  //     setData(jsonData);
-  //   }
-  //   fetchData();
-  // }, []);
+
 
   const [toggle,setToggle]=useState(false);
   const handleClick =()=>{
@@ -33,35 +26,37 @@ const Admin = () => {
           {/* <Link to="/" className="text-white font-bold text-xl"> */}
             <img src={pic} alt=" " height={80} width={80} />
           {/* </Link> */}
+          
           <nav className="flex space-x-10  relative">
+          {/* <nav className="nav"> */}
            <div className=' visible md:invisible absolute top-0 right-0' > 
            
               
             <List className='  ' size={40} onClick={handleClick}/>
              </div> 
-             
             <Link
-              to="/member"
+              to="/memberviewpage"
               className="text-white hover:text-gray-200 font-medium text-base font-serif  invisible md:visible" 
             >
               Memberships
             </Link>
+
             <Link
-              to="/fertilizer"
+              to="/fertilizerviewpage"
               className="text-white hover:text-gray-200 font-medium text-base font-serif invisible md:visible"
             >
               Fertilizer
             </Link>
   
             <Link
-              to="/worker"
+              to="/workerviewpage"
               className="text-white hover:text-gray-200 font-medium text-base font-serif invisible md:visible"
             >
               Workers
             </Link>
   
             <Link
-              to="/food"
+              to="/foodviewpage"
               className="text-white hover:text-gray-200 font-medium text-base font-serif invisible md:visible"
             >
               Food Details
@@ -84,7 +79,7 @@ const Admin = () => {
           
            
           </nav>
-         
+          
           {/* </List> */}
         </div>
         
@@ -98,6 +93,7 @@ const Admin = () => {
         <ul class="flex flex-col py-4">
           <li>         
              <NavLink to="/member" >
+            
             <a href="#" class="flex items-center py-2 px-6 text-gray-500 hover:bg-gray-700 hover:text-white">
               <span class="mr-3">
                 {/* <svg class="h-6 w-6" viewBox="0 0 24 24">

@@ -1,16 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
-// import Admin from './Admin';
-// import Member from './Member';
-// import Food from './Food';
-// import Fertlizer from './Fertilizer'
-// import Workers from './Workers';
-// import { BrowserRouter, Routes, Route,NavLink} from "react-router-dom";
+import Admin from './Admin';
+import Member from './Member';
+import Food from './Food';
+import Fertlizer from './Fertilizer'
+import Workers from './Workers';
+import { BrowserRouter, Routes, Route,NavLink} from "react-router-dom";
 // import { Table } from 'react-bootstrap-icons';
 // import Member from './member';
  
  import Table from './Table';
-// import Login from './Login';
+import Login from './Login';
+import TableFood from './TableFood';
+import TableFertilizer from './TableFertilizer';
+import TableWorker from './TableWorker';
+import Memberviewpage from './Memberviewpage';
+import Fertilizerviewpage from './Fertilizerviewpage';
+import Workerviewpage from './Workerviewpage';
+import Foodviewpage from './Foodviewpage';
 // import { Table } from 'react-bootstrap-icons';
 
 function App() {
@@ -22,20 +29,30 @@ function App() {
       {/* <Food/> */}
       {/* <Fertilizer/> */}
         {/* <Workers/> */}
-         {/* <BrowserRouter> */}
-         {/* <Login/>
-        <Admin/> */}
-        <Table/>
-        {/* <Routes>
+         <BrowserRouter>
+         {/* <Login/> */}
+        <Admin/>  
+        {/* <Table/> */}
+        {/* <TableFood/> */}
+        {/* <TableFertilizer/> */}
+        {/* <TableWorker/> */}
+          <Routes>
       
                     <Route exact path="/member" element={<Member />} />
                     <Route exact path="/worker" element={<Workers />} />
                     <Route exact path="/food" element={<Food/>} />
                     <Route exact path="/fertilizer" element={<Fertlizer/>} />
-                    {/* <Route exact path="/worker" element={<Workers/>} /> */}
-                  
-                 {/* </Routes> */}
-             {/* </BrowserRouter>   */} 
+                     {/* <Route exact path="/worker" element={<Workers/>} />  */}
+                     <Route exact path="/table" element={<Table/>} /> 
+                     <Route exact path="/tablefood" element={<TableFood/>} /> 
+                     <Route exact path="/tablefertilizer" element={<TableFertilizer/>} /> 
+                     <Route exact path="/tableworker" element={<TableWorker/>} /> 
+                     <Route exact path="/memberviewpage" element={<Memberviewpage/>} />
+                     <Route exact path="/fertilizerviewpage" element={<Fertilizerviewpage/>} />
+                     <Route exact path="/workerviewpage" element={< Workerviewpage/>} />
+                     <Route exact path="/foodviewpage" element={< Foodviewpage/>} />
+                  </Routes>  
+              </BrowserRouter>   
             
             
             

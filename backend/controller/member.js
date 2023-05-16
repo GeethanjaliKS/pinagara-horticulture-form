@@ -1,4 +1,6 @@
 import member from '../model/MemberModel.js'
+import { Express } from 'express';
+const app = express();
 
 export const adduser =  async (req,res) => {
     // console.log(req.body)
@@ -29,3 +31,29 @@ export const adduser =  async (req,res) => {
     }
 }
 
+// Backend API route to get all member details
+export const viewmember= async (req, res) => {
+    try {
+      const members = await member.find();
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+      res.status(200).json({
+        status: 'success',
+        data: {
+          members,
+        },
+      });
+    } catch (err) {
+      res.status(500).json({
+        status: 'error',
+        message: err.message,
+      });
+    }
+  };
+
+
+//delete memeber
+  app.delete('/delete-user/:id', async (req,res) => {
+    const id = req.params.id
+    await User.findByIdAndRemove(id).exec()
+    res.send('Deleted')
+})

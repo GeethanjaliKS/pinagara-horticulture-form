@@ -27,3 +27,23 @@ export const addfer =  async (req,res) => {
         console.log(err)
     }
 }
+
+// Backend API route to get all member details
+export const viewfertilizer= async (req, res) => {
+    try {
+      const fertilizers = await fertilizer.find();
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+      res.status(200).json({
+        status: 'success',
+        data: {
+          fertilizers,
+        },
+      });
+    } catch (err) {
+      res.status(500).json({
+        status: 'error',
+        message: err.message,
+      });
+    }
+  };
+  

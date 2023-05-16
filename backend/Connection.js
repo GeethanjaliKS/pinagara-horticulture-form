@@ -1,10 +1,10 @@
 import cors from "cors";
 import mongoose from "mongoose";
 import express from "express";
-import {adduser} from './controller/member.js'
-import { addfood } from "./controller/food.js";
-import { addfer } from "./controller/fertilizer.js";
-import { addworker } from "./controller/worker.js";
+import {adduser, viewmember} from './controller/member.js'
+import { addfood, viewfood } from "./controller/food.js";
+import { addfer, viewfertilizer } from "./controller/fertilizer.js";
+import { addworker, viewworker } from "./controller/worker.js";
 
 const app = express()
 
@@ -28,3 +28,16 @@ app.post('/adduser',adduser)
 app.post('/addfood',addfood)
 app.post('/addfer',addfer)
 app.post('/addworker',addworker)
+
+
+//view details
+
+app.get('/viewmember',viewmember)
+app.get('/viewfood',viewfood)
+app.get('/viewfertilizer',viewfertilizer)
+app.get('/viewworker',viewworker)
+
+
+//delete details
+
+app.delete('/deletemember')

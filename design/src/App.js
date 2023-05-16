@@ -5,22 +5,29 @@ import Footer from './Footer';
 import About from './About';
 import Team from './Team';
 import { BrowserRouter,Route, Routes } from 'react-router-dom';
+import Product from './Product';
+import Foodcard from './Foodcard';
 function App() {
   return (
     <div> 
       
       <BrowserRouter>
-      <Header/>
-      <About/>
+      <Header/><br/><br/><br/>
+      
+      {/* <About/>
       <Team/>
-      <Footer/>
+      <Product/>
+      <Footer/> */}
              
       <Routes>
-    <Route path="/" exact component={Header} />
-    <Route path="/" exact component={Footer} />
-    <Route path="/" exact component={About} />
-    <Route path="/" exact component={Team} />
+    {/* <Route path="" exact component={Header} />
+    <Route path="" exact component={Footer} /> */}
+   <Route exact path='/about' element={< About />}></Route>
+   <Route exact path='/team' element={< Team />}></Route>
+   <Route exact path='/product' element={< Product />}></Route>
+   <Route exact path='/foodcard' element={< Foodcard />}></Route>
     </Routes>
+    <Footer/>
     </BrowserRouter>
 
 {/* 

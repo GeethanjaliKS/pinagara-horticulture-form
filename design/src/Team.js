@@ -1,5 +1,5 @@
 import React from 'react'
-// import {pre} from './images/president.png'
+import pre from './images/president.png'
 import "./App.css"
 
 function Team() {
@@ -13,7 +13,7 @@ function Team() {
           <a href='#!'>
             <img
               className='rounded-t-lg'
-              src="https://tecdn.b-cdn.net/img/new/standard/nature/184.jpg"
+              src={pre}
               alt=''
             />
           </a>
