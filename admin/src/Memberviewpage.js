@@ -42,7 +42,7 @@ function Memberviewpage() {
     bulk of the card's content.
   </p>
   <div className='text-end'>
-    <Link to="/table" className="text-blue-500 font-bold font-serif hover:text-blue-900 text-2xl" style={{fontFamily:'Dancing Script'}}>
+    <Link to="/tablemember" className="text-blue-500 font-bold font-serif hover:text-blue-900 text-2xl" style={{fontFamily:'Dancing Script'}}>
             VIEW
           </Link> 
  </div> 

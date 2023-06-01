@@ -18,7 +18,7 @@ export const adduser =async(data)=>{
     //viewmember
     export const viewmembers =async(data)=>{
         try {
-            console.log('data',data)
+            // console.log('data',data)
             return await fetch(`http://127.0.0.1:4001/viewmember`,{
                     // mode: 'no-cors',
                     method:"GET",
@@ -33,7 +33,44 @@ export const adduser =async(data)=>{
         }
         }
 
+        //delete member
+        export const deletememberapi =async(id)=>{
+            try {
+                 console.log('data',id)
+            
+                return await fetch(`http://127.0.0.1:4001/deletemember/${id}`,{
+                        method:"DELETE",
+                        // body: JSON.stringify({_id:id}),
+                        headers:{
+                        "Content-Type":"application/json"
         
+                    },
+                    });
+                  
+            } catch (error) {
+                console.log(error.message)
+            }
+            }
+            
+            // upadte member
+
+            export const updatemember =async(id)=>{
+            try {
+                 console.log(id)
+            
+                return await fetch(`http://127.0.0.1:4001/updatemember/${id}`,{
+                        method:"PATCH",
+                        // body: JSON.stringify({_id:id}),
+                        headers:{
+                        "Content-Type":"application/json"
+        
+                    },
+                    });
+                  
+            } catch (error) {
+                console.log(error.message)
+            }
+            }    
 
     export const addfood =async(data)=>{
         try {

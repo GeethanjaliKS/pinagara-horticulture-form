@@ -7,6 +7,9 @@ import Team from './Team';
 import { BrowserRouter,Route, Routes } from 'react-router-dom';
 import Product from './Product';
 import Foodcard from './Foodcard';
+import Fertilizercart from './Fertilizercart';
+import Home from './Home';
+import CarouselExample from './Carousel';
 function App() {
   return (
     <div> 
@@ -26,6 +29,9 @@ function App() {
    <Route exact path='/team' element={< Team />}></Route>
    <Route exact path='/product' element={< Product />}></Route>
    <Route exact path='/foodcard' element={< Foodcard />}></Route>
+   <Route exact path='/fertilizercart' element={< Fertilizercart />}></Route>
+   <Route exact path='/' element={< Home />}></Route>
+   <Route exact path='/carousel' element={< CarouselExample />}></Route>
     </Routes>
     <Footer/>
     </BrowserRouter>

@@ -1,7 +1,7 @@
 import cors from "cors";
 import mongoose from "mongoose";
 import express from "express";
-import {adduser, viewmember} from './controller/member.js'
+import {adduser, deletemember, updatemember, viewmember} from './controller/member.js'
 import { addfood, viewfood } from "./controller/food.js";
 import { addfer, viewfertilizer } from "./controller/fertilizer.js";
 import { addworker, viewworker } from "./controller/worker.js";
@@ -40,4 +40,9 @@ app.get('/viewworker',viewworker)
 
 //delete details
 
-app.delete('/deletemember')
+app.delete('/deletemember/:id',deletemember)
+
+
+//update details
+app.patch('/updatemember/:id',updatemember)
+

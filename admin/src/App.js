@@ -18,6 +18,7 @@ import Memberviewpage from './Memberviewpage';
 import Fertilizerviewpage from './Fertilizerviewpage';
 import Workerviewpage from './Workerviewpage';
 import Foodviewpage from './Foodviewpage';
+import MemberCount from './MemberCount';
 // import { Table } from 'react-bootstrap-icons';
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
                     <Route exact path="/food" element={<Food/>} />
                     <Route exact path="/fertilizer" element={<Fertlizer/>} />
                      {/* <Route exact path="/worker" element={<Workers/>} />  */}
-                     <Route exact path="/table" element={<Table/>} /> 
+                     <Route exact path="/tablemember" element={<Table/>} /> 
                      <Route exact path="/tablefood" element={<TableFood/>} /> 
                      <Route exact path="/tablefertilizer" element={<TableFertilizer/>} /> 
                      <Route exact path="/tableworker" element={<TableWorker/>} /> 
@@ -51,6 +52,7 @@ function App() {
                      <Route exact path="/fertilizerviewpage" element={<Fertilizerviewpage/>} />
                      <Route exact path="/workerviewpage" element={< Workerviewpage/>} />
                      <Route exact path="/foodviewpage" element={< Foodviewpage/>} />
+                     <Route exact path="/membercount" element={< MemberCount/>} />
                   </Routes>  
               </BrowserRouter>   
             

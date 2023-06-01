@@ -28,7 +28,7 @@ const handleSubmit =async (e) => {
              Food Name
             </label>
             <input
-              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
+              className="appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
               id="name"
               type="text"
               placeholder="Enter Food name"
@@ -41,7 +41,7 @@ const handleSubmit =async (e) => {
               Cost
             </label>
             <input
-              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
+              className="appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
               id="cost"
               type="text"
               placeholder="Cost"
@@ -55,7 +55,7 @@ const handleSubmit =async (e) => {
               Description
             </label>
             <input
-              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
+              className="appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
               id="description"
               type="text"
               placeholder="Description"

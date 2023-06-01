@@ -1,10 +1,11 @@
 import React from 'react';
 import product from './images/Logo.png';
+import "./App.css";
 
 function Product() {
    return(
-<div className="container mx-auto px-4">
-  <h1 className="text-3xl font-bold mb-8">Our Products and Services</h1>
+<div className="container mx-auto px-4 pt-[3%] left-0 right-0 top-0">
+  <h1 className="text-2xl hover:font-bold mb-8 "  style={{fontFamily:'Bruno Ace SC' }}>Our Products and Services</h1>
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     <div className="bg-white rounded-lg shadow-lg">
       <img className="rounded-t-lg" src={product} alt="Product 1"/>

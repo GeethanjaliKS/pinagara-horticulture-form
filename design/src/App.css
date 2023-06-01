@@ -1,11 +1,23 @@
 
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Nunito:wght@400;700;1000&family=Roboto+Mono:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@200&family=Bruno+Ace+SC&family=Dancing+Script:wght@400;500&family=Foldit:wght@300&family=Kanit:wght@500&family=Montserrat:wght@100&family=Nunito:wght@400;700;1000&family=Righteous&family=Roboto+Mono:wght@100&display=swap');
 
-/* body {
-  font-family: 'Nunito', sans-serif;
-}  */
+@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@200&family=Bruno+Ace+SC&family=Dancing+Script:wght@400;500&family=Foldit:wght@300&family=Fugaz+One&family=Kanit:wght@500&family=Montserrat:wght@100&family=Nunito:wght@400;700;1000&family=Righteous&family=Roboto+Mono:wght@100&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@200&family=Bruno+Ace+SC&family=Dancing+Script:wght@400;500&family=Foldit:wght@300&family=Fugaz+One&family=Josefin+Sans:ital,wght@1,200;1,600&family=Kanit:wght@500&family=Montserrat:wght@100&family=Nunito:wght@400;700;1000&family=Righteous&family=Roboto+Mono:wght@100&display=swap');
+
+@import "~react-image-gallery/styles/css/image-gallery.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+   
+        @media (max-width: 768px) {
+            #footer{
+             
+            }
+          
+        
+    }

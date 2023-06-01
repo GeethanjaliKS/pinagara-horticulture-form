@@ -1,34 +1,55 @@
 import React,{useState} from 'react'
-import { adduser,viewmembers } from './Routes/routes';
+import { adduser,updatemember,viewmembers } from './Routes/routes';
 import FileBase from 'react-file-base64';
 
 
  
 
-function Member() {
+function Member(props) {
     // const userForm = () => {
-    const [name, setName] = useState("");
-    const [address, setAddress] = useState("");
-    const [contactNumber, setContactNumber] = useState("");
-    const [email, setEmail] = useState("");
-    const [image, setImage] = useState("");
+    const{updateFormData,updateForm}=props;
+    console.log(updateFormData);
+    console.log(updateForm);
+    const [name, setName] = useState(updateFormData && updateFormData[0] .name || "");
+    
+    const [address, setAddress] = useState(updateFormData && updateFormData[0] .address || "");
+    const [contactNumber, setContactNumber] = useState(updateFormData && updateFormData[0] .contact || "");
+    const [email, setEmail] = useState(updateFormData && updateFormData[0] && updateFormData[0].email_id || "");
+    const [image, setImage] = useState(updateFormData && updateFormData[0] && updateFormData[0].image || "");
     const [successMessage, setSuccessMessage] = useState('');
     
 
     const handleSubmit = async (e) => {
       console.log(name,contactNumber,address,email,image)
         e.preventDefault();
-        await adduser({name:name,address:address,contact:contactNumber,email_id:email,image:image}).then((res)=>res.json()).then((res)=>console.log(res))
-        // Handle form submission here
-        console.log("Form submitted");
- setSuccessMessage('Member add successful!');
+        console.log(updateForm)
+        if(updateForm){
+          await updatemember({name:name,address:address,contact:contactNumber,email_id:email,image:image}).then((res)=>res.json()).then((res)=>console.log(res))
+          console.log("Form submitted");
+          // Handle form submission here
+        setSuccessMessage('updated member successful!');
+        }
+        else{
+          await adduser({name:name,address:address,contact:contactNumber,email_id:email,image:image}).then((res)=>res.json()).then((res)=>console.log(res))
+          console.log("Form submitted");
+          // Handle form submission here
+        setSuccessMessage('Member add successful!');
+        }
+       
+      // await updatemember({name:name,address:address,contact:contactNumber,email_id:email,image:image}).then((res)=>res.json()).then((res)=>console.log(res))
+ setName("");
+ setContactNumber("");
+ setEmail("");
+ setAddress("");
+ setImage("");
 
-        
+ };
 
-        
-    
-    };
     console.log(image)
+
+
+
+    
   return (
     <div>
      <div className="max-w-md mx-auto my-20 pt-[10%]  ">
@@ -40,7 +61,7 @@ function Member() {
               Name
             </label>
             <input
-              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
+              className="appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline "
               id="name"
               type="text"
               placeholder="Enter your name"
@@ -53,7 +74,7 @@ function Member() {
               Contact Number
             </label>
             <input
-              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
+              className="appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
               id="contactNumber"
               type="text"
               placeholder="Enter your contact number"
@@ -67,7 +88,7 @@ function Member() {
             Email ID
           </label>
           <input
-            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
+            className="appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
             id="email"
             type="email"
             placeholder="Enter your email"
@@ -80,7 +101,7 @@ function Member() {
               Address
             </label>
             <textarea
-              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
+              className="appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
               id="address"
               placeholder="Enter your address"
               value={address}

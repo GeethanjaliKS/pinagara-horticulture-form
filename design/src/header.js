@@ -12,14 +12,14 @@ const handleClick =()=>{
 };
   return (
     <div>
-    <header className=" bg-green-300 py-1 shadow-xl md:fixed left-0 right-0 top-0  ">
+    <header className=" bg-green-300 py-1 shadow-xl md:fixed left-0 right-0 top-0 " > 
       <div className="grid grid-cols-2 items-center justify-between mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* <List className='' size={20}> */}
 
         {/* <Link to="/" className="text-white font-bold text-xl"> */}
           <img src={pic} alt=" " height={80} width={80} />
         {/* </Link> */}
-        <nav className="flex space-x-10  relative">
+        <nav className="flex space-x-5  relative">
          <div className=' visible md:invisible absolute top-0 right-0' > 
          
             
@@ -28,34 +28,34 @@ const handleClick =()=>{
            
           <Link
             to="/"
-            className="text-white hover:text-gray-200 font-medium text-base font-serif  invisible md:visible" 
-          >
+            className="text-white hover:text-gray-200 font-medium text-base   invisible md:visible " 
+            style={{fontFamily:'Bruno Ace SC' }} >
             Home
           </Link>
           <Link
             to="/fertilizer"
-            className="text-white hover:text-gray-200 font-medium text-base font-serif invisible md:visible"
-          >
+            className="text-white hover:text-gray-200 font-medium text-base  invisible md:visible"
+            style={{fontFamily:'Bruno Ace SC'}}  >
             Fertilizer
           </Link>
 
           <Link
             to="/workers"
             className="text-white hover:text-gray-200 font-medium text-base font-serif invisible md:visible"
-          >
+            style={{fontFamily:'Bruno Ace SC'}}   >
             Workers
           </Link>
 
           <Link
             to="/contact"
             className="text-white hover:text-gray-200 font-medium text-base font-serif invisible md:visible"
-          >
+            style={{fontFamily:'Bruno Ace SC'}}  >
             Contact
           </Link>
           <Link
             to="/about"
             className="text-white hover:text-gray-200 font-medium text-base font-serif invisible md:visible"
-          >
+            style={{fontFamily:'Bruno Ace SC'}}   >
             About
           </Link>
           {/* <Link
