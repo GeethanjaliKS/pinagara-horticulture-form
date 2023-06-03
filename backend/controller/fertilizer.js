@@ -47,3 +47,21 @@ export const viewfertilizer= async (req, res) => {
     }
   };
   
+// delete fertilizer
+  export const deletefertilizer=async (req,res) => {
+    try {
+      const {id}= req.params
+    console.log(id)
+   const dat= await fertilizer.findByIdAndRemove(id)
+   console.log(dat)
+    res.json({data:'Deleted'})
+    } catch (err) {
+      res.status(500).json({
+        status: 'error',
+        message: err.message,
+        
+      });
+      console.log(err.message)
+    }
+    
+  }

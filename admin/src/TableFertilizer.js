@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { viewfertilizer } from './Routes/routes';
+import { deletefertilizerapi, viewfertilizer } from './Routes/routes';
 
 function TableFertilizer() {
   const [fertilizers, setFertilizers] = useState([]);
@@ -16,13 +16,33 @@ function TableFertilizer() {
     fetchData();
   }, []);
 
-  // Get current members
-  const indexOfLastMember = currentPage * membersPerPage;
-  const indexOfFirstMember = indexOfLastMember - membersPerPage;
-  const currentMembers = fertilizers.slice(indexOfFirstMember, indexOfLastMember);
 
-  // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+   //delete member
+   const handleDelete = async (id) => {
+    try {
+ const  response= await deletefertilizerapi(id);
+   const data = await response.json();
+   console.log(data.data)
+   
+ 
+   let filterfertilizer= fertilizers.filter((fertilizer) => fertilizer._id !==id);
+      setFertilizers(filterfertilizer);
+      // console.log(filtermember);
+      console.log(fertilizers)
+      // Handle success or show notification
+    } catch (error) {
+      console.log(error.message);
+      // Handle error or show error notification
+    }
+  };
+
+  // Get current members
+  // const indexOfLastMember = currentPage * membersPerPage;
+  // const indexOfFirstMember = indexOfLastMember - membersPerPage;
+  // const currentMembers = fertilizers.slice(indexOfFirstMember, indexOfLastMember);
+
+  // // Change page
+  // const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className='pt-[10%]'>
@@ -38,7 +58,7 @@ function TableFertilizer() {
             </tr>
           </thead>
           <tbody>
-            {currentMembers.map((fertilizers) => (
+            {fertilizers.map((fertilizers) => (
               <tr key={fertilizers._id}>
                 <td className="border border-slate-300">{fertilizers.name}</td>
                 <td className="border border-slate-300">{fertilizers.cost}</td>
@@ -46,12 +66,14 @@ function TableFertilizer() {
                 <td className="border border-slate-300 ">
                   <img src={fertilizers.image} alt={fertilizers.name} className="w-20 h-20 object-cover mt-3 mb-3" />
                 </td>
+                <td className="border border-slate-300   "><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(fertilizers._id)}>Delete</button>
+</td>
               </tr>
             ))}
           </tbody>
         </table>
 
-        <div className="pagination mt-4">
+        {/* <div className="pagination mt-4">
           {membersPerPage < fertilizers.length && (
             <div className="flex">
               {[...Array(Math.ceil(fertilizers.length / membersPerPage)).keys()].map((number) => (
@@ -67,7 +89,7 @@ function TableFertilizer() {
               ))}
             </div>
           )}
-        </div>
+        </div> */}
       </center>
     </div>
   );

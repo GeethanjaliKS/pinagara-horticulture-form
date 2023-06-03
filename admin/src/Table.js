@@ -37,7 +37,7 @@ function Table() {
    let filtermember= members.filter((member) => member._id !==id);
       setMembers(filtermember);
       // console.log(filtermember);
-      console.log(members)
+      // console.log(members)
       // Handle success or show notification
     } catch (error) {
       console.log(error.message);

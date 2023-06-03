@@ -2,9 +2,9 @@ import cors from "cors";
 import mongoose from "mongoose";
 import express from "express";
 import {adduser, deletemember, updatemember, viewmember} from './controller/member.js'
-import { addfood, viewfood } from "./controller/food.js";
-import { addfer, viewfertilizer } from "./controller/fertilizer.js";
-import { addworker, viewworker } from "./controller/worker.js";
+import { addfood, deletefood, viewfood } from "./controller/food.js";
+import { addfer, deletefertilizer, viewfertilizer } from "./controller/fertilizer.js";
+import { addworker, deleteworker, viewworker } from "./controller/worker.js";
 
 const app = express()
 
@@ -41,6 +41,9 @@ app.get('/viewworker',viewworker)
 //delete details
 
 app.delete('/deletemember/:id',deletemember)
+app.delete('/deletefertilizer/:id',deletefertilizer)
+app.delete('/deletefood/:id',deletefood)
+app.delete('/deleteworker/:id',deleteworker)
 
 
 //update details

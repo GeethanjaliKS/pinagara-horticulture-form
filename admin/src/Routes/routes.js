@@ -54,13 +54,13 @@ export const adduser =async(data)=>{
             
             // upadte member
 
-            export const updatemember =async(id)=>{
+            export const updatemember =async(data)=>{
             try {
-                 console.log(id)
+                //  console.log(data)
             
-                return await fetch(`http://127.0.0.1:4001/updatemember/${id}`,{
+                return await fetch(`http://127.0.0.1:4001/updatemember/${data}`,{
                         method:"PATCH",
-                        // body: JSON.stringify({_id:id}),
+                        body: JSON.stringify({id:data.id,name:data.name, email:data.email_id,contact:data.contact,image:data.image,address:data.address}),
                         headers:{
                         "Content-Type":"application/json"
         
@@ -104,7 +104,25 @@ export const adduser =async(data)=>{
                 console.log(error.message)
             }
             }
+     //delete fertilizer
+     export const deletefoodapi =async(id)=>{
+        try {
+             console.log('data',id)
+        
+            return await fetch(`http://127.0.0.1:4001/deletefood/${id}`,{
+                    method:"DELETE",
+                    // body: JSON.stringify({_id:id}),
+                    headers:{
+                    "Content-Type":"application/json"
     
+                },
+                });
+              
+        } catch (error) {
+            console.log(error.message)
+        }
+        }
+
 
         export const addfer =async(data)=>{
             try {
@@ -139,7 +157,28 @@ export const adduser =async(data)=>{
                 console.log(error.message)
             }
             }
+
+            //delete fertilizer
+        export const deletefertilizerapi =async(id)=>{
+            try {
+                 console.log('data',id)
+            
+                return await fetch(`http://127.0.0.1:4001/deletefertilizer/${id}`,{
+                        method:"DELETE",
+                        // body: JSON.stringify({_id:id}),
+                        headers:{
+                        "Content-Type":"application/json"
+        
+                    },
+                    });
+                  
+            } catch (error) {
+                console.log(error.message)
+            }
+            }
     
+
+
 
             export const addworker =async(data)=>{
                 try {
@@ -174,4 +213,21 @@ export const adduser =async(data)=>{
                     }
                     }
             
+    //delete worker
+    export const deleteworkapi =async(id)=>{
+        try {
+             console.log('data',id)
+        
+            return await fetch(`http://127.0.0.1:4001/deletework/${id}`,{
+                    method:"DELETE",
+                    // body: JSON.stringify({_id:id}),
+                    headers:{
+                    "Content-Type":"application/json"
     
+                },
+                });
+              
+        } catch (error) {
+            console.log(error.message)
+        }
+        }

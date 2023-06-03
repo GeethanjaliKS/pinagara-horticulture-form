@@ -46,3 +46,21 @@ export const viewworker= async (req, res) => {
     }
   };
 
+ // delete worker
+ export const deleteworker=async (req,res) => {
+  try {
+    const {id}= req.params
+  console.log(id)
+ const dat= await worker.findByIdAndRemove(id)
+ console.log(dat)
+  res.json({data:'Deleted'})
+  } catch (err) {
+    res.status(500).json({
+      status: 'error',
+      message: err.message,
+      
+    });
+    console.log(err.message)
+  }
+  
+}

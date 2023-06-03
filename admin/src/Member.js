@@ -8,8 +8,9 @@ import FileBase from 'react-file-base64';
 function Member(props) {
     // const userForm = () => {
     const{updateFormData,updateForm}=props;
-    console.log(updateFormData);
-    console.log(updateForm);
+    // console.log(updateFormData);
+    // console.log(updateForm);
+    const [id,setId]=useState(updateFormData[0]._id);
     const [name, setName] = useState(updateFormData && updateFormData[0] .name || "");
     
     const [address, setAddress] = useState(updateFormData && updateFormData[0] .address || "");
@@ -24,7 +25,7 @@ function Member(props) {
         e.preventDefault();
         console.log(updateForm)
         if(updateForm){
-          await updatemember({name:name,address:address,contact:contactNumber,email_id:email,image:image}).then((res)=>res.json()).then((res)=>console.log(res))
+          await updatemember({id:id,name:name,address:address,contact:contactNumber,email_id:email,image:image}).then((res)=>res.json()).then((res)=>console.log(res))
           console.log("Form submitted");
           // Handle form submission here
         setSuccessMessage('updated member successful!');

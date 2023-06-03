@@ -47,4 +47,21 @@ export const viewfood= async (req, res) => {
     }
   };
   
-  
+  // delete food
+  export const deletefood=async (req,res) => {
+    try {
+      const {id}= req.params
+    console.log(id)
+   const dat= await food.findByIdAndRemove(id)
+   console.log(dat)
+    res.json({data:'Deleted'})
+    } catch (err) {
+      res.status(500).json({
+        status: 'error',
+        message: err.message,
+        
+      });
+      console.log(err.message)
+    }
+    
+  }

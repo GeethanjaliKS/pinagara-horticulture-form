@@ -1,7 +1,7 @@
 import React from 'react';
 import ImageGallery from 'react-image-gallery';
 import './App.css';
-import img1 from './images/about.png';
+import img1 from './images/pexels-maarten-van-den-heuvel-2284170.jpg';
 function CarouselExample()  {
   const images = [
     {
@@ -18,6 +18,17 @@ function CarouselExample()  {
     },
   ];
 
-  return <ImageGallery items={images} slideWidth={800}  fullScreen={true} showPlayButton={false} />;
+  return  <div className="fullscreen-carousel">
+  <ImageGallery
+    items={images}
+    showPlayButton={false}
+    showThumbnails={false}
+    showBullets={true}
+    slideInterval={2000}
+    additionalClass="fullscreen-image"
+    
+
+  />
+</div>
 }
 export default CarouselExample;

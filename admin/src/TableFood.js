@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { viewfood } from './Routes/routes';
+import { deletefoodapi, viewfood } from './Routes/routes';
 
 function TableFood() {
   const [foods, setFoods] = useState([]);
@@ -16,13 +16,31 @@ function TableFood() {
     fetchData();
   }, []);
 
-  // Get current members
-  const indexOfLastMember = currentPage * membersPerPage;
-  const indexOfFirstMember = indexOfLastMember - membersPerPage;
-  const currentMembers = foods.slice(indexOfFirstMember, indexOfLastMember);
+  const handleDelete = async (id) => {
+    try {
+ const  response= await deletefoodapi(id);
+   const data = await response.json();
+   console.log(data.data)
+   
+ 
+   let filterfood= foods.filter((food) => food._id !==id);
+      setFoods(filterfood);
+      // console.log(filtermember);
+      console.log(foods)
+      // Handle success or show notification
+    } catch (error) {
+      console.log(error.message);
+      // Handle error or show error notification
+    }
+  };
 
-  // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  // Get current members
+  // const indexOfLastMember = currentPage * membersPerPage;
+  // const indexOfFirstMember = indexOfLastMember - membersPerPage;
+  // const currentMembers = foods.slice(indexOfFirstMember, indexOfLastMember);
+
+  // // Change page
+  // const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className='pt-[10%]'>
@@ -38,7 +56,7 @@ function TableFood() {
             </tr>
           </thead>
           <tbody>
-            {currentMembers.map((foods) => (
+            {foods.map((foods) => (
               <tr key={foods._id}>
                 <td className="border border-slate-300">{foods.name}</td>
                 <td className="border border-slate-300">{foods.cost}</td>
@@ -46,12 +64,14 @@ function TableFood() {
                 <td className="border border-slate-300 ">
                   <img src={foods.image} alt={foods.name} className="w-20 h-20 object-cover mt-3 mb-3" />
                 </td>
+                <td className="border border-slate-300   "><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(foods._id)}>Delete</button>
+</td>
               </tr>
             ))}
           </tbody>
         </table>
 
-        <div className="pagination mt-4">
+        {/* <div className="pagination mt-4">
           {membersPerPage < foods.length && (
             <div className="flex">
               {[...Array(Math.ceil(foods.length / membersPerPage)).keys()].map((number) => (
@@ -67,7 +87,7 @@ function TableFood() {
               ))}
             </div>
           )}
-        </div>
+        </div> */}
       </center>
     </div>
   );

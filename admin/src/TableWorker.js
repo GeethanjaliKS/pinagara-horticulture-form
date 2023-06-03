@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { viewworker } from './Routes/routes';
+import { deleteworkapi, viewworker } from './Routes/routes';
 
 function TableWorker() {
   const [workers, setWorkers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [membersPerPage, setMembersPerPage] = useState(10);
-
+//view data
   const fetchData = async () => {
     const response = await viewworker();
     const data = await response.json();
@@ -16,13 +16,33 @@ function TableWorker() {
     fetchData();
   }, []);
 
-  // Get current members
-  const indexOfLastMember = currentPage * membersPerPage;
-  const indexOfFirstMember = indexOfLastMember - membersPerPage;
-  const currentMembers = workers.slice(indexOfFirstMember, indexOfLastMember);
+  //delete worker
+  const handleDelete = async (id) => {
+    try {
+ const  response= await deleteworkapi(id);
+   const data = await response.json();
+   console.log(data.data)
+   
+ 
+   let filterworker= workers.filter((worker) => worker._id !==id);
+      setWorkers(filterworker);
+      // console.log(filtermember);
+      console.log(workers)
+      // Handle success or show notification
+    } catch (error) {
+      console.log(error.message);
+      // Handle error or show error notification
+    }
+  };
 
-  // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  // Get current members
+  // const indexOfLastMember = currentPage * membersPerPage;
+  // const indexOfFirstMember = indexOfLastMember - membersPerPage;
+  // const currentMembers = workers.slice(indexOfFirstMember, indexOfLastMember);
+
+  // // Change page
+  // const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className='pt-[10%]'>
@@ -39,7 +59,7 @@ function TableWorker() {
             </tr>
           </thead>
           <tbody>
-            {currentMembers.map((workers) => (
+            {workers.map((workers) => (
               <tr key={workers._id}>
                 <td className="border border-slate-300">{workers.name}</td>
                 <td className="border border-slate-300">{workers.contact}</td>
@@ -48,12 +68,14 @@ function TableWorker() {
                 <td className="border border-slate-300 ">
                   <img src={workers.image} alt={workers.name} className="w-20 h-20 object-cover mt-3 mb-3" />
                 </td>
+                <td className="border border-slate-300   "><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(workers._id)}>Delete</button>
+</td>
               </tr>
             ))}
           </tbody>
         </table>
 
-        <div className="pagination mt-4">
+        {/* <div className="pagination mt-4">
           {membersPerPage < workers.length && (
             <div className="flex">
               {[...Array(Math.ceil(workers.length / membersPerPage)).keys()].map((number) => (
@@ -69,7 +91,7 @@ function TableWorker() {
               ))}
             </div>
           )}
-        </div>
+        </div> */}
       </center>
     </div>
   );

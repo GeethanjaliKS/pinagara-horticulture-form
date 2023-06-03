@@ -11,7 +11,7 @@ function Workerviewpage() {
   className="block rounded-lg bg-slate-300  p-6 drop-shadow-md hover:drop-shadow-xl duration-300 dark:bg-neutral-800  md:w-1/2">
   <h5
     className="mb-2 text-2xl font-medium leading-tight text-neutral-800 dark:text-neutral-100  hover:font-bold " style={{fontFamily:'Bruno Ace SC'}}>
-    Adding Member
+    Adding Worker
   </h5><br/> <br/>
   <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
     Some quick example text to build on the card title and make up the 
@@ -34,7 +34,7 @@ function Workerviewpage() {
     className="block rounded-lg bg-slate-300  p-6 drop-shadow-md hover:drop-shadow-xl duration-300 dark:bg-neutral-800  md:w-1/2 ">
   <h5
     className="mb-2 text-2xl font-medium leading-tight text-neutral-800 dark:text-neutral-100 " style={{fontFamily:'Bruno Ace SC'}}>
-    Viewing Member
+    Viewing Worker
   </h5><br/><br/>
   <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
     Some quick example text to build on the card title and make up the 

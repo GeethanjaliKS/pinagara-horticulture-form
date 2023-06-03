@@ -73,14 +73,16 @@ export const deletemember=async (req,res) => {
 
 export const updatemember= async (req, res) => {
   try {
-    const memberId = req.params.id;
-    const { name, contact, email_id } = req.body;
+    // const {id} = req.params;
+    // console.log(id)
+    const { id,name, contact, email,address,image} = req.body;
+    console.log(req.body)
+  
 
     // Perform the update operation using the ID and updated data
-    const updatedMember = await Member.findByIdAndUpdate(
-      memberId,
-      { name, contact, email_id },
-      { new: true }
+    const updatedMember = await member.findByIdAndUpdate(
+      id,
+      { name:name, contact:contact, email_id:email,address:address,image:image },{new:true}
     );
 
     res.json({ data: updatedMember });

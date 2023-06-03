@@ -21,3 +21,16 @@
           
         
     }
+
+
+
+    .fullscreen-carousel {
+        width: 100%;
+        height: 100vh;
+      }
+      
+      .fullscreen-carousel .image-gallery-slide img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
