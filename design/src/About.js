@@ -7,7 +7,7 @@ import './App.css'
 
 function About() {
   return (
-    <div className=" mx-auto py-8 px-4 bg-green-300 w-full ">
+    <div className=" mx-auto py-8 px-4 bg-green-300 w-full  mb-1 drop-shadow-2xl shadow-green-300 ">
          <div className="flex flex-wrap ">
       <div className="w-full">
         <h2 className="text-4xl  mb-4 font-bold text-center" style={{fontFamily:'Josefin Sans'}}>About Us</h2>

@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { List } from 'react-bootstrap-icons';
 import pic from './images/Logo.png'
 import './App.css';
-
+import { CircularProgressbar,buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 
 const Admin = () => {
@@ -17,6 +18,50 @@ const Admin = () => {
    
   
   };
+
+const percentage=99;
+  <CircularProgressbar
+  value={percentage}
+  text={`${percentage}%`}
+  styles={{
+    // Customize the root svg element
+    root: {},
+    // Customize the path, i.e. the "completed progress"
+    path: {
+      // Path color
+      stroke: `rgba(62, 152, 199, ${percentage / 100})`,
+      // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
+      strokeLinecap: 'butt',
+      // Customize transition animation
+      transition: 'stroke-dashoffset 0.5s ease 0s',
+      // Rotate the path
+      transform: 'rotate(0.25turn)',
+      transformOrigin: 'center center',
+    },
+    // Customize the circle behind the path, i.e. the "total progress"
+    trail: {
+      // Trail color
+      stroke: '#d6d6d6',
+      // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
+      strokeLinecap: 'butt',
+      // Rotate the trail
+      transform: 'rotate(0.25turn)',
+      transformOrigin: 'center center',
+    },
+    // Customize the text
+    text: {
+      // Text color
+      fill: '#f88',
+      // Text size
+      fontSize: '16px',
+    },
+    // Customize background - only used when the `background` prop is true
+    background: {
+      fill: '#3e98c7',
+    },
+  }}
+/>
+  
     return (
       <div>
       <header className=" bg-gray-600 py-1 shadow-xl md:fixed left-0 right-0 top-0  ">
@@ -157,27 +202,10 @@ const Admin = () => {
             ""
           }
 
-{/* <div className="container mx-auto">
-<h1 className="text-2xl font-bold mb-4">Data Table</h1>
-<table className="table-auto">
-  <thead>
-    <tr>
-      <th className="px-4 py-2">ID</th>
-      <th className="px-4 py-2">Name</th>
-      <th className="px-4 py-2">Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    {data.map((item) => (
-      <tr key={item.id}>
-        <td className="border px-4 py-2">{item.id}</td>
-        <td className="border px-4 py-2">{item.name}</td>
-        <td className="border px-4 py-2">{item.email}</td>
-      </tr>
-    ))}
-  </tbody>
-</table>
-</div> */}
+
+
+
+
       </div>
 
 

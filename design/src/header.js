@@ -12,7 +12,7 @@ const handleClick =()=>{
 };
   return (
     <div>
-    <header className=" bg-green-300 py-1 shadow-xl md:fixed left-0 right-0 top-0 " > 
+    <header className=" bg-green-300 py-1 shadow-xl md:fixed left-0 right-0 top-0 z-40 " > 
       <div className="grid grid-cols-2 items-center justify-between mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* <List className='' size={20}> */}
 

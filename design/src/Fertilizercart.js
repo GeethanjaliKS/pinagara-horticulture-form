@@ -22,7 +22,7 @@ function Fertilizercart() {
   return (
     <div>
       <center>
-      <div className=" mx-auto pt-[3%] bg-green-300">
+      <div className=" mx-auto pt-[3%] bg-green-300 mb-1 drop-shadow-2xl shadow-green-300">
   <h1 className="text-4xl font-bold mb-4" style={{fontFamily:'Fugaz One'}}>FERTILIZER</h1> <br/>
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8  ">
   {fertilizer.map((fertilizer) => (

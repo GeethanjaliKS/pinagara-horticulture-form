@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "644f877f933fbd5543509ea5"
+  },
+  "name": "abc",
+  "contact": "5628946782",
+  "email_id": "dbhgdhgd@gmail.com",
+  "address": "jsdghfshgfhd",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644f8853f8e711fe5a97591b"
+  },
+  "name": "geethanjali ks",
+  "contact": "07996201371",
+  "email_id": "geethanjaliks001@gmail.com",
+  "address": "jdhgdg",
+  "__v": 0
+}]

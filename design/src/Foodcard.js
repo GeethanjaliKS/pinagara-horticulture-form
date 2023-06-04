@@ -23,14 +23,14 @@ function Foodcard() {
   return (
     <div>
       <center>
-      <div className=" mx-auto pt-[3%] bg-green-300 ">
+      <div className=" mx-auto pt-[3%] bg-green-300  mb-1 drop-shadow-2xl shadow-green-300 ">
   <h1 className="text-4xl font-bold mb-4" style={{fontFamily:'Fugaz One'}}>FOOD</h1> <br/>
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
   {food.map((foods) => (
             
       <div key={foods.id} className="bg-gray-200 overflow-hidden hover:drop-shadow-xl rounded-lg w-full  ">
         <img src={foods.image}  className="object-cover w-full min-h-10" />
-        <div className="px-4 py-2">
+        <div className="px-4 py-1">
           <h2 className="font-bold text-xl mb-2">{foods.name}</h2>
           <p className="text-gray-700 text-base">{foods.description}</p>
           <p className="text-gray-700 text-base mt-2">$Price {foods.cost}</p>

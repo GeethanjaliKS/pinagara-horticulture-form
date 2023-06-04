@@ -9,8 +9,8 @@ import "./App.css"
 
 function Team() {
   return (
-    <div className='bg-green-300'>
-    <h2 className="text-4xl  mb-6 font-bold text-center" style={{fontFamily:'Josefin Sans'}}>Our Team</h2> 
+    <div className='mx-auto py-8 px-4 bg-green-300 w-full  mb-1 drop-shadow-2xl shadow-green'>
+    <h2 className="text-4xl  mb-4 font-bold text-center" style={{fontFamily:'Josefin Sans'}}>Our Team</h2> 
     <div className='flex flex-wrap justify-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300  '>
       
       <div className='w-full md:w-1/4 p-4'>
