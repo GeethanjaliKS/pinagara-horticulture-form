@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 import { List } from 'react-bootstrap-icons';
 import pic from './images/Logo.png'
 import './App.css';
-import { CircularProgressbar,buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
-
+// import { CircularProgressbar,buildStyles } from 'react-circular-progressbar';
+// import 'react-circular-progressbar/dist/styles.css';
 
 const Admin = () => {
 
@@ -19,50 +18,11 @@ const Admin = () => {
   
   };
 
-const percentage=99;
-  <CircularProgressbar
-  value={percentage}
-  text={`${percentage}%`}
-  styles={{
-    // Customize the root svg element
-    root: {},
-    // Customize the path, i.e. the "completed progress"
-    path: {
-      // Path color
-      stroke: `rgba(62, 152, 199, ${percentage / 100})`,
-      // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
-      strokeLinecap: 'butt',
-      // Customize transition animation
-      transition: 'stroke-dashoffset 0.5s ease 0s',
-      // Rotate the path
-      transform: 'rotate(0.25turn)',
-      transformOrigin: 'center center',
-    },
-    // Customize the circle behind the path, i.e. the "total progress"
-    trail: {
-      // Trail color
-      stroke: '#d6d6d6',
-      // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
-      strokeLinecap: 'butt',
-      // Rotate the trail
-      transform: 'rotate(0.25turn)',
-      transformOrigin: 'center center',
-    },
-    // Customize the text
-    text: {
-      // Text color
-      fill: '#f88',
-      // Text size
-      fontSize: '16px',
-    },
-    // Customize background - only used when the `background` prop is true
-    background: {
-      fill: '#3e98c7',
-    },
-  }}
-/>
+
+
   
     return (
+      
       <div>
       <header className=" bg-gray-600 py-1 shadow-xl md:fixed left-0 right-0 top-0  ">
         <div className="grid grid-cols-2 items-center justify-between mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -106,12 +66,12 @@ const percentage=99;
             >
               Food Details
             </Link>
-            {/* <Link
-              to="/about"
+            <Link
+              to=" "
               className="text-white hover:text-gray-200 font-medium text-base font-serif invisible md:visible"
             >
-              About
-            </Link> */}
+              Order Details
+            </Link>
             {/* <Link
               to="/login"
               
@@ -202,11 +162,13 @@ const percentage=99;
             ""
           }
 
+    {/* <ArrowDownCircle className='animate-bounce w-12 h-12 text-[#f43f08]' onClick={()=>window.scrollTo(0,700)}/> */}
+   
+  </div>
 
 
 
-
-      </div>
+    
 
 
     );
@@ -215,83 +177,6 @@ const percentage=99;
 
   
   
-// function Admin() {
-// //   const [showForm, setShowForm] = useState(false);
-// //   const handleComponentClick = () => {
-// //     setShowForm(true);
-// //   };
-//   return (
-   
-  
-      
-// <div>
-     
-//     <div className="flex h-screen bg-gray-100">
-//       <div className="flex flex-col w-64 bg-gray-600">
-//         <div className="flex items-center justify-center h-14 text-white text-xl font-bold">Admin Panel</div>
-//        {/* {showForm ?  */}
-//         <nav className="flex-grow">
-//           <ul className="flex flex-col py-4">
-          
-//             <li>
-//               <a href="#" className="flex items-center py-2 px-6 text-gray-500 hover:bg-gray-700 hover:text-white">
-//                 <span className="mr-3">
-//                   {/* <svg className="h-6 w-6" viewBox="0 0 24 24">
-//                     <path fill="currentColor" d="M9,16H7V14H9V16M13,16H11V14H13V16M17,16H15V14H17V16M19,10V14H21V10H19M5,10V14H3V10H5Z" />
-//                   </svg> */}
-//                 </span>
-//                 Memberships
-//               </a>
-//             </li>
-//             <li> <BrowserRouter>
-//             <NavLink to="/food" >
-//               <a href="#" className="flex items-center py-2 px-6 text-gray-500 hover:bg-gray-700 hover:text-white" >
-//                 <span className="mr-3">
-//                   {/* <svg className="h-6 w-6" viewBox="0 0 24 24">
-//                     <path fill="currentColor" d="M3,7H21V9H3V7M3,13H21V11H3V13M3,17H21V15H3V17Z" />
-//                   </svg> */}
-//                 </span>
-//                 Food Details
-//               </a>
-//               </NavLink></BrowserRouter>
-//             </li>
-//             <li>
-//               <a href="#" className="flex items-center py-2 px-6 text-gray-500 hover:bg-gray-700 hover:text-white">
-//                 <span className="mr-3">
-//                   {/* <svg className="h-6 w-6" viewBox="0 0 24 24">
-//                     <path fill="currentColor" d="M3,7H21V9H3V7M3,13H21V11H3V13M3,17H21V15H3V17Z" />
-//                   </svg> */}
-//                 </span>
-//                 Workers
-//               </a>
-//             </li>
-//             <li>
-//               <a href="#" className="flex items-center py-2 px-6 text-gray-500 hover:bg-gray-700 hover:text-white">
-//                 <span className="mr-3">
-//                   {/* <svg className="h-6 w-6" viewBox="0 0 24 24">
-//                     <path fill="currentColor" d="M19,18H5V6H19M19,4H5C3.9,4 3,4.9 3,6V18C3,19.1 3.9,20 5,20H19C20.1,20 21,19.1 21,18V6C21,4.9 20.1,4 19,4Z" />
-//                   </svg> */}
-//                 </span>
-//                 Fertilizer
-//               </a>
-//             </li>
-//           </ul>
-//         </nav>
-//       {/* :
-//       ""
-//       }   */}
- 
-//       </div>
-//       {/* <div className="flex-grow flex flex-col items-center justify-center">
-//         <h1 className="text-4xl font-bold">Welcome to Admin Panel</h1>
-//       </div> */}
-//     </div>
-    
 
-// </div>
-    
-   
-//   )
-// }
 
 export default Admin

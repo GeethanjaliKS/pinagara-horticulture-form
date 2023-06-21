@@ -1,20 +1,30 @@
 import React,{useState} from 'react'
-import {addfer} from './Routes/routes'
+import {addfer, updatefertilizer} from './Routes/routes'
 import FileBase from 'react-file-base64'
 
-function Fertilizer() {
-const [name, setName] = useState("");
-const [cost, setCost] = useState("");
-const [description, setDescription] = useState("");
-const [image, setImage] = useState("");
+function Fertilizer(props) {
+  const{updateFormData,updateForm}=props;
+// const [id,setId]=useState(updateFormData && updateFormData[0]._id || "");
+const [name, setName] = useState(updateFormData && updateFormData[0] .name || "" );
+const [cost, setCost] = useState(updateFormData && updateFormData[0] .cost || "" );
+const [description, setDescription] = useState(updateFormData && updateFormData[0] .description|| "" );
+const [image, setImage] = useState(updateFormData && updateFormData[0] .image || "" );
 const [successMessage, setSuccessMessage] = useState('');
+
 
 
 const handleSubmit =async (e) => {
     e.preventDefault();
-    await addfer({name:name,cost:cost,description:description,image:image}).then((res)=>res.json()).then((res)=>console.log(res))
+    if(updateForm){
+      await updatefertilizer({name:name,cost:cost,description:description,image:image,item:'fertilizer'}).then((res)=>res.json()).then((res)=>console.log(res))
+      console.log("Form submitted");
+      // Handle form submission here
+    setSuccessMessage('updated member successful!');
+    } else{
+    await addfer({name:name,cost:cost,description:description,image:image,type:'fertilizer'}).then((res)=>res.json()).then((res)=>console.log(res))
     console.log("Form submitted");
-    setSuccessMessage('Worker add successful!');
+    setSuccessMessage('Fertilizer added successful!');
+    }
 };
   return (
     <div> 

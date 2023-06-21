@@ -3,11 +3,11 @@ import member from '../model/MemberModel.js'
 
 export const adduser =  async (req,res) => {
     // console.log(req.body)
-    let {name} = req.body 
-    let {contact} = req.body 
-    let {email_id} = req.body
-    let {address} = req.body  
-    let {image} = req.body 
+    let {name,contact,address,email_id,image} = req.body 
+    // let {contact} = req.body 
+    // let {email_id} = req.body
+    // let {address} = req.body  
+    // let {image} = req.body 
 
 
     try{

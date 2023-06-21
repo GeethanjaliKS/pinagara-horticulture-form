@@ -1,64 +1,49 @@
-import { useState } from "react";
-import Admin from './Admin';
+// import { useState } from "react";
+// import Admin from './Admin';
+// import { addadmin } from "./Routes/routes";
+ 
+// function Login() {
+//   const [email, setEmail] = useState('');
+//   const [password, setPassword] = useState('');
 
-function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
+//   const handleLogin = async (e) => {
+//     e.preventDefault();
+//   }
 
-  const handleUsernameChange = (e) => setUsername(e.target.value);
-  const handlePasswordChange = (e) => setPassword(e.target.value);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle admin login logic here
-    if (username === "admin" && password === "password") {
-      setLoggedIn(true);
-    } else {
-      alert("Invalid username or password");
-    }
-  };
+//   return (
+//     <div className="min-h-screen flex items-center justify-center bg-gray-100">
+//       <form
+//         className="max-w-md p-6 bg-white rounded shadow"
+//         onSubmit={handleLogin}
+//       >
+//         <h2 className="text-2xl font-bold mb-6">Admin Login</h2>
+//         <div className="mb-4">
+//           <label className="block mb-2 font-medium">Email:</label>
+//           <input
+//             type="email"
+//             className="w-full border border-gray-300 rounded p-2"
+//             value={email}
+//             onChange={(e) => setEmail(e.target.value)}
+//           />
+//         </div>
+//         <div className="mb-4">
+//           <label className="block mb-2 font-medium">Password:</label>
+//           <input
+//             type="password"
+//             className="w-full border border-gray-300 rounded p-2"
+//             value={password}
+//             onChange={(e) => setPassword(e.target.value)}
+//           />
+//         </div>
+//         <button
+//           type="submit"
+//           className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded"
+//         >
+//           Login
+//         </button>
+//       </form>
+//     </div>
+//   );
 
-  if (loggedIn) {
-    return <Admin />;
-  }
-
-  return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <h1 className="text-3xl font-semibold mb-8">Admin Login</h1>
-      <form className="w-96" onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="username" className="block text-gray-700 font-bold mb-2">
-            Username
-          </label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={handleUsernameChange}
-            className="px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent w-full"
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="password" className="block text-gray-700 font-bold mb-2">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-            className="px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent w-full"
-          />
-        </div>
-        <button
-          type="submit"
-          className="bg-blue-600 text-white px-4 py-3 rounded-lg shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 w-full"
-        >
-          Login
-        </button>
-      </form>
-    </div>
-  );
-}
-
-export default Login;
+// }
+// export default Login;

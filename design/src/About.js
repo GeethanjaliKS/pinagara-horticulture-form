@@ -7,10 +7,11 @@ import './App.css'
 
 function About() {
   return (
-    <div className=" mx-auto py-8 px-4 bg-green-300 w-full  mb-1 drop-shadow-2xl shadow-green-300 ">
+    <div className="">
+    <div className=" mx-auto py-8 px-10 bg-green-300 w-full  mb-1 drop-shadow-2xl shadow-green-300  ">
          <div className="flex flex-wrap ">
       <div className="w-full">
-        <h2 className="text-4xl  mb-4 font-bold text-center" style={{fontFamily:'Josefin Sans'}}>About Us</h2>
+        <h2 className="text-4xl   font-bold text-center" style={{fontFamily:'Josefin Sans'}}>About Us</h2>
         {/* <p className="mb-8">
         <h2 className=" text-4xl text-center  font-extrabold  mb-4 ">PINGAARA</h2>
         </p> */}
@@ -33,6 +34,7 @@ function About() {
         
         /> */}
     
+    </div>
     </div>
     </div>
   );

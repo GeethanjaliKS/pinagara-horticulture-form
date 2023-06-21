@@ -1,10 +1,14 @@
 import cors from "cors";
 import mongoose from "mongoose";
 import express from "express";
+import bcrypt from "bcrypt";
+
 import {adduser, deletemember, updatemember, viewmember} from './controller/member.js'
-import { addfood, deletefood, viewfood } from "./controller/food.js";
-import { addfer, deletefertilizer, viewfertilizer } from "./controller/fertilizer.js";
-import { addworker, deleteworker, viewworker } from "./controller/worker.js";
+import { addfood, deletefood, updatefood, viewfood } from "./controller/food.js";
+import { addfer,  deletefertilizer, updatefertilizer, viewfertilizer } from "./controller/fertilizer.js";
+import { addworker, deleteworker, updateworker, viewworker } from "./controller/worker.js";
+import {  carts } from "./controller/cart.js";
+// import { addadmin } from "./controller/admin.js";
 
 const app = express()
 
@@ -28,7 +32,9 @@ app.post('/adduser',adduser)
 app.post('/addfood',addfood)
 app.post('/addfer',addfer)
 app.post('/addworker',addworker)
-
+// app.post('./admin',addadmin)
+// app.post('/cart',cartstore)
+app.post('/cart', carts)
 
 //view details
 
@@ -48,4 +54,6 @@ app.delete('/deleteworker/:id',deleteworker)
 
 //update details
 app.patch('/updatemember/:id',updatemember)
-
+app.patch('/updateworker/:id',updateworker)
+app.patch('/updatefood/:id',updatefood)
+app.patch('/updatefertilizer/:id',updatefertilizer)

@@ -10,6 +10,9 @@ import Foodcard from './Foodcard';
 import Fertilizercart from './Fertilizercart';
 import Home from './Home';
 import CarouselExample from './Carousel';
+import Opening from './Opening';
+import Login from './Login';
+import Cart from './Cart';
 function App() {
   return (
     <div> 
@@ -29,11 +32,14 @@ function App() {
    <Route exact path='/team' element={< Team />}></Route>
    <Route exact path='/product' element={< Product />}></Route>
    <Route exact path='/foodcard' element={< Foodcard />}></Route>
-   <Route exact path='/fertilizercart' element={< Fertilizercart />}></Route>
+   <Route exact path='/fertilizer' element={< Fertilizercart />}></Route>
    <Route exact path='/' element={< Home />}></Route>
    <Route exact path='/carousel' element={< CarouselExample />}></Route>
+   <Route exact path='/opening' element={< Opening />}></Route>
+   <Route exact path='/login' element={< Login />}></Route>
+   <Route exact path='/cart' element={< Cart/>}></Route>
     </Routes>
-    <Footer/>
+    {/* <Footer/> */}
     </BrowserRouter>
 
 {/* 

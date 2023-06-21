@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom';
 import pic from './images/Logo.png'
-import { List } from 'react-bootstrap-icons';
+import { List,Cart } from 'react-bootstrap-icons';
 import "./App.css"
 
 
@@ -19,11 +19,11 @@ const handleClick =()=>{
         {/* <Link to="/" className="text-white font-bold text-xl"> */}
           <img src={pic} alt=" " height={80} width={80} />
         {/* </Link> */}
-        <nav className="flex space-x-5  relative">
+        <nav className="flex space-x-3  space-y-5  relative ">
          <div className=' visible md:invisible absolute top-0 right-0' > 
          
             
-          <List className='  ' size={30} onClick={handleClick}/>
+          <List className='/cart ' size={30} onClick={handleClick}/>
            </div> 
            
           <Link
@@ -40,10 +40,10 @@ const handleClick =()=>{
           </Link>
 
           <Link
-            to="/workers"
+            to="/foodcard"
             className="text-white hover:text-gray-200 font-medium text-base font-serif invisible md:visible"
             style={{fontFamily:'Bruno Ace SC'}}   >
-            Workers
+            Snacks
           </Link>
 
           <Link
@@ -58,6 +58,17 @@ const handleClick =()=>{
             style={{fontFamily:'Bruno Ace SC'}}   >
             About
           </Link>
+
+          <Link
+            to=" "
+            className="text-white hover:text-gray-200 font-medium text-base font-serif invisible md:visible"
+            style={{fontFamily:'Bruno Ace SC'}}   >
+            Worker
+          </Link>
+
+        
+          
+
           {/* <Link
             to="/login"
             
@@ -65,12 +76,16 @@ const handleClick =()=>{
           >
             login
           </Link> */}
-          <button type="button" class="text-white hover:text-gray-200 bg-gradient-to-r from-green-200 via-green-400 to-green-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-2 py-2 text-center mr-3 mb-3 w-40 invisible md:visible">LOGIN</button>
-    
+          <Link to="/login">
+          <button type="button" class="text-white hover:text-gray-200 bg-gradient-to-r from-green-200 via-green-400 to-green-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-2 py-2 text-center mr-3 mb-3 w-20 invisible md:visible">LOGIN</button>
+          </Link>
+
+          <Link to="/cart" className="text-white hover:text-gray-200">
+            <Cart size={20} />
+          </Link>
         
-         
         </nav>
-       
+        
         {/* </List> */}
       </div>
       

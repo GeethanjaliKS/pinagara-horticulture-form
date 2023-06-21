@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { deletefertilizerapi, viewfertilizer } from './Routes/routes';
+import Fertilizer from './Fertilizer';
 
 function TableFertilizer() {
   const [fertilizers, setFertilizers] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [membersPerPage, setMembersPerPage] = useState(10);
-
+  const [updateForm,setUpdateForm]=useState(false);
+  const [updateFormData,setUpdateFormData]=useState([])
   const fetchData = async () => {
     const response = await viewfertilizer();
     const data = await response.json();
@@ -36,6 +36,18 @@ function TableFertilizer() {
     }
   };
 
+  const handleUpdate=(fertilizer)=>{
+    // console.log(member)
+   setUpdateFormData([fertilizer])
+   try{
+     // const response=await updatemember(id);
+     // const data=await response.json();
+     // console.log(data.data)
+     setUpdateForm(!updateForm);
+   }catch(error){
+     console.log(error.message)
+   }
+  }
   // Get current members
   // const indexOfLastMember = currentPage * membersPerPage;
   // const indexOfFirstMember = indexOfLastMember - membersPerPage;
@@ -47,6 +59,7 @@ function TableFertilizer() {
   return (
     <div className='pt-[10%]'>
       <center>
+      {(!updateForm )?
         <table className="border-collapse border border-slate-400 bg-slate-100">
           <caption className="caption-top font-bold text-lg pt-10 font-serif">FERTILIZER DETAILS</caption>
           <thead>
@@ -68,11 +81,15 @@ function TableFertilizer() {
                 </td>
                 <td className="border border-slate-300   "><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(fertilizers._id)}>Delete</button>
 </td>
+<td className="border border-slate-300   "><button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(fertilizers) }>Upadte</button>
+</td>
               </tr>
             ))}
           </tbody>
         </table>
-
+:
+<Fertilizer updateFormData={updateFormData} updateForm={updateForm}/> 
+}
         {/* <div className="pagination mt-4">
           {membersPerPage < fertilizers.length && (
             <div className="flex">

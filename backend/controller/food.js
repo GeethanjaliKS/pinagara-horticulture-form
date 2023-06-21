@@ -1,4 +1,4 @@
-import food from '../model/FoodModel.js'
+import item from '../model/Item.js'
 
 export const addfood =  async (req,res) => {
     // console.log(req.body)
@@ -6,12 +6,13 @@ export const addfood =  async (req,res) => {
     let {cost} = req.body 
     let {description} = req.body
     let {image} = req.body
+    let {type} = req.body
      
 
     try{
 
-        let newfood = new food({
-            name,cost,description,image
+        let newfood = new item({
+            name,cost,description,image,type
             
         })
        let createdUser = await newfood.save() 
@@ -31,7 +32,7 @@ export const addfood =  async (req,res) => {
 // Backend API route to get all member details
 export const viewfood= async (req, res) => {
     try {
-      const foods = await food.find();
+      const foods = await item.find({type:'food'});
       res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
       res.status(200).json({
         status: 'success',
@@ -52,7 +53,7 @@ export const viewfood= async (req, res) => {
     try {
       const {id}= req.params
     console.log(id)
-   const dat= await food.findByIdAndRemove(id)
+   const dat= await item.findByIdAndRemove(id)
    console.log(dat)
     res.json({data:'Deleted'})
     } catch (err) {
@@ -65,3 +66,26 @@ export const viewfood= async (req, res) => {
     }
     
   }
+
+//update member
+
+  export const updatefood= async (req, res) => {
+    try {
+      // const {id} = req.params;
+      // console.log(id)
+      const { id,name, cost, description,image,type} = req.body;
+      console.log(req.body)
+    
+  
+      // Perform the update operation using the ID and updated data
+      const updatedFood = await food.findByIdAndUpdate(
+        id,
+        { name:name, cost:cost, description:description,image:image,type:type },{new:true}
+      );
+  
+      res.json({ data: updatedFood });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Server error' });
+    }}
+  

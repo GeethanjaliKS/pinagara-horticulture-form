@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { deleteworkapi, viewworker } from './Routes/routes';
+import Workers from './Workers';
 
 function TableWorker() {
   const [workers, setWorkers] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [membersPerPage, setMembersPerPage] = useState(10);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [membersPerPage, setMembersPerPage] = useState(10);
+  const [updateForm,setUpdateForm]=useState(false);
+  const [updateFormData,setUpdateFormData]=useState([])
 //view data
   const fetchData = async () => {
     const response = await viewworker();
@@ -34,8 +37,19 @@ function TableWorker() {
       // Handle error or show error notification
     }
   };
-
-
+//update
+  const handleUpdate=(worker)=>{
+    // console.log(worker)
+   setUpdateFormData([worker])
+   try{
+     // const response=await updatemember(id);
+     // const data=await response.json();
+     // console.log(data.data)
+     setUpdateForm(!updateForm);
+   }catch(error){
+     console.log(error.message)
+   }
+ }
   // Get current members
   // const indexOfLastMember = currentPage * membersPerPage;
   // const indexOfFirstMember = indexOfLastMember - membersPerPage;
@@ -47,6 +61,7 @@ function TableWorker() {
   return (
     <div className='pt-[10%]'>
       <center>
+      {(!updateForm )?
         <table className="border-collapse border border-slate-400 bg-slate-100">
           <caption className="caption-top font-bold text-lg pt-10 font-serif">WORKERS DETAILS</caption>
           <thead>
@@ -70,10 +85,17 @@ function TableWorker() {
                 </td>
                 <td className="border border-slate-300   "><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(workers._id)}>Delete</button>
 </td>
+<td className="border border-slate-300   "><button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(workers) }>Upadte</button>
+</td>
+
               </tr>
             ))}
           </tbody>
-        </table>
+             </table>
+               :
+               <Workers updateFormData={updateFormData} updateForm={updateForm}/> 
+               }
+                  
 
         {/* <div className="pagination mt-4">
           {membersPerPage < workers.length && (

@@ -5,6 +5,7 @@ import Team from './Team'
 import Foodcard from './Foodcard'
 import Fertilizercart from './Fertilizercart'
 import CarouselExample from './Carousel'
+import Opening from './Opening'
 
 function Home() {
   return (
@@ -14,6 +15,8 @@ function Home() {
 <Team/>
 <Foodcard/>
 <Fertilizercart/>
+<Opening/>
+
 
     </div>
   )

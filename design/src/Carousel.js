@@ -26,9 +26,10 @@ function CarouselExample()  {
     showPlayButton={true}
     showThumbnails={false}
     showBullets={true}
-    slideInterval={2000}
+    slideInterval={4000}
     additionalClass="fullscreen-image"
     autoPlay={true}
+    
 
   />
 </div>

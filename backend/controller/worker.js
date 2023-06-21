@@ -64,3 +64,25 @@ export const viewworker= async (req, res) => {
   }
   
 }
+
+//update member
+
+export const updateworker= async (req, res) => {
+  try {
+    // const {id} = req.params;
+    // console.log(id)
+    const { id,name, contact, email,address} = req.body;
+    console.log(req.body)
+  
+
+    // Perform the update operation using the ID and updated data
+    const updatedMember = await worker.findByIdAndUpdate(
+      id,
+      { name:name, contact:contact, email_id:email,address:address },{new:true}
+    );
+
+    res.json({ data: updatedWorker });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }}
