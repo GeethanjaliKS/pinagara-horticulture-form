@@ -1,90 +1,100 @@
-import React,{useState} from 'react'
+import React,{ useEffect, useState } from 'react';
+import { login } from './Routes/Route';
 
-function Login() {
-    const [name, setName] = useState('');
-    const [address, setAddress] = useState('');
-    const [pincode, setPincode] = useState('');
-    const [contactNumber, setContactNumber] = useState('');
+const Login= () => {
+  const [email_idOrContact, setEmailOrContact] = useState('');
+  const [password, setPassword] = useState('');
+  // const [email_id, setEmailId] = useState('');
+  // const [contact, setContact] = useState('');
+  const [successMessage, setSuccessMessage] = useState(' ');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [items, setItems] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    
+  await login({emailOrContact:email_idOrContact,password:password}).then((res)=>res.json()).then((res)=>{
+    if(res.message === 'login successful')
+    {
+      localStorage.setItem("user",JSON.stringify(res.data))
+      const user=localStorage.getItem("user")
+      console.log(user)
+      setSuccessMessage("user logged in successfully")
+      setErrorMessage('')
+    }else 
+    {
+      setErrorMessage("Give correct information")
+      setSuccessMessage('')
+    }
   
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      // Handle form submission logic here
-    };
-  return (
-    <div className='bg-green-200 h-full pb-5 '>
-    <div className="max-w-md mx-auto  pt-[2%]  ">
-        <h1 className='text-center font-bold text-2xl my-2'>Login</h1>
-     <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded px-7 pt-10 pb-5 justify-center">
-       <div className="grid grid-cols-2 gap-4">
-         <div>
-           <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
-             Name
-           </label>
-           <input
-             className="appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline "
-             id="name"
-             type="text"
-             placeholder="Enter your name"
-             value={name}
-             onChange={(e) => setName(e.target.value)}
-           />
-         </div><br/>
-         <div>
-           <label className="block text-gray-700 font-bold mb-2" htmlFor="contactNumber">
-             Contact Number
-           </label>
-           <input
-             className="appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
-             id="contactNumber"
-             type="text"
-             placeholder="Enter your contact number"
-             value={contactNumber}
-             onChange={(e) => setPincode(e.target.value)}
-           />
-         </div>
-         <br/>
-         <div className="col-span-2">
-           <label className="block text-gray-700 font-bold mb-2" htmlFor="address">
-             Address
-           </label>
-           <textarea
-             className="appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
-             id="address"
-             placeholder="Enter your address"
-             value={address}
-             onChange={(e) => setAddress(e.target.value)}
-           ></textarea>
-         </div>
-       </div> <br/> 
-       <div>
-           <label className="block text-gray-700 font-bold mb-2" htmlFor="contactNumber">
-             Pincode
-           </label>
-           <input
-             className="appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
-             id="contactNumber"
-             type="text"
-             placeholder="Enter your pincode"
-             value={pincode}
-             onChange={(e) => setContactNumber(e.target.value)}
-           />
-         </div>
-         <br/>
-      
-       <div className="flex items-center justify-center mt-4">
-         <button
-           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-           type="submit"
-         >
-           Submit
-         </button>
-       </div>
-       
-     </form>
-     
-   </div>
-   </div>
-  )
-}
+  })
 
-export default Login
+    setEmailOrContact('');
+    setPassword('');
+  
+   
+  };
+
+
+	// API for get requests
+
+  
+  
+
+
+
+  return (
+  
+
+  
+    <div className="flex items-center justify-center min-h-screen bg-green-200">
+      <div className="w-full max-w-sm p-6 bg-white rounded shadow-md">
+    
+      {successMessage && <p className="text-black-500 font-bold">{successMessage}</p>}
+        {errorMessage && <p className="text-red-500 font-bold">{errorMessage}</p>}
+        <h1 className="text-2xl font-semibold text-center">Login</h1>
+        <form className="mt-6" onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="emailOrContact" className="block mb-1 font-medium">
+              Email or Contact
+            </label>
+            <input
+              type="text"
+              id="emailOrContact"
+              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter your email or contact number"
+              value={email_idOrContact}
+              onChange={(e) => setEmailOrContact(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mt-4">
+            <label htmlFor="password" className="block mb-1 font-medium">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required 
+            />
+          </div>
+          <div className="mt-6">
+            <button
+              type="submit"
+              className="w-full px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none" onClick={handleSubmit}
+            >
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

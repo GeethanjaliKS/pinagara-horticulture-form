@@ -11,8 +11,9 @@ import Fertilizercart from './Fertilizercart';
 import Home from './Home';
 import CarouselExample from './Carousel';
 import Opening from './Opening';
-import Login from './Login';
 import Cart from './Cart';
+import Register from './Register';
+import Login from './Login';
 function App() {
   return (
     <div> 
@@ -36,10 +37,11 @@ function App() {
    <Route exact path='/' element={< Home />}></Route>
    <Route exact path='/carousel' element={< CarouselExample />}></Route>
    <Route exact path='/opening' element={< Opening />}></Route>
-   <Route exact path='/login' element={< Login />}></Route>
+   <Route exact path='/register' element={< Register />}></Route>
    <Route exact path='/cart' element={< Cart/>}></Route>
+   <Route exact path='/login' element={< Login/>}></Route>
     </Routes>
-    {/* <Footer/> */}
+    <Footer/>
     </BrowserRouter>
 
 {/* 

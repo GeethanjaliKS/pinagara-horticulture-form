@@ -76,13 +76,13 @@ const handleClick =()=>{
           >
             login
           </Link> */}
-          <Link to="/login">
-          <button type="button" class="text-white hover:text-gray-200 bg-gradient-to-r from-green-200 via-green-400 to-green-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-2 py-2 text-center mr-3 mb-3 w-20 invisible md:visible">LOGIN</button>
+          <Link to="/register">
+          <button type="button" className="text-white hover:text-gray-200 bg-gradient-to-r from-green-200 via-green-400 to-green-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-4 py-2 text-center mr-4 mb-4 w-30 invisible md:visible"style={{fontFamily:'Bruno Ace SC'}}   >Register</button>
           </Link>
 
-          <Link to="/cart" className="text-white hover:text-gray-200">
+          {/* <Link to="/cart" className="text-white hover:text-gray-200">
             <Cart size={20} />
-          </Link>
+          </Link> */}
         
         </nav>
         

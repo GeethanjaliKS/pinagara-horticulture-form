@@ -35,16 +35,18 @@ function Fertilizercart() {
     <div>
     <center>
       <div className="mx-auto pt-[3%] bg-green-300 mb-1 drop-shadow-2xl shadow-green-300">
-        <h1 className="text-4xl font-bold mb-4   font-bold" style={{fontFamily:'Josefin Sans'}}>FERTILIZER</h1> <br />
+        <h1 className="text-4xl font-bold mb-4 font-bold" style={{ fontFamily: 'Josefin Sans' }}>FERTILIZER</h1> <br />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ml-2 mr-2">
           {fertilizer.map((fertilizer) => (
-            <div key={fertilizer.id} className="bg-gray-200 overflow-hidden hover:drop-shadow-xl rounded-lg w-full h-15">
-              <img src={fertilizer.image} className="object-cover w-[100%] h-15" />
+            <div key={fertilizer.id} className="bg-gray-200 overflow-hidden hover:drop-shadow-xl rounded-lg">
+              <div className="relative h-48">
+                <img src={fertilizer.image} className="object-cover w-full h-full" alt={fertilizer.name} />
+              </div>
               <div className="px-4 py-2">
                 <h2 className="font-bold text-xl mb-2">{fertilizer.name}</h2>
                 <p className="text-gray-700 text-base">{fertilizer.description}</p>
                 <p className="text-gray-700 text-base mt-2">$Price {fertilizer.cost}</p>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-2 " onClick={(e) => addToCart(fertilizer)}>Add to Cart</button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-2" onClick={(e) => addToCart(fertilizer)}>Add to Cart</button>
               </div>
             </div>
           ))}
@@ -52,6 +54,7 @@ function Fertilizercart() {
       </div>
     </center>
   </div>
+  
   
   
   );

@@ -4,7 +4,7 @@ import Count from './Count'
 function Home() {
   return (
     <div>
-        {/* <Count/> */}
+        <Count/>
     </div>
   )
 }

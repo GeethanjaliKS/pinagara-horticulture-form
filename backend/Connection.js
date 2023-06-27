@@ -2,12 +2,15 @@ import cors from "cors";
 import mongoose from "mongoose";
 import express from "express";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 import {adduser, deletemember, updatemember, viewmember} from './controller/member.js'
 import { addfood, deletefood, updatefood, viewfood } from "./controller/food.js";
 import { addfer,  deletefertilizer, updatefertilizer, viewfertilizer } from "./controller/fertilizer.js";
 import { addworker, deleteworker, updateworker, viewworker } from "./controller/worker.js";
-import {  carts } from "./controller/cart.js";
+// import {  carts } from "./controller/cart.js";
+import {   usereg } from "./controller/user.js";
+import {  loginUser } from "./controller/Login.js";
 // import { addadmin } from "./controller/admin.js";
 
 const app = express()
@@ -34,7 +37,9 @@ app.post('/addfer',addfer)
 app.post('/addworker',addworker)
 // app.post('./admin',addadmin)
 // app.post('/cart',cartstore)
-app.post('/cart', carts)
+// app.post('/cart', carts)
+app.post('/usereg',usereg)
+app.post('/login',loginUser)
 
 //view details
 
