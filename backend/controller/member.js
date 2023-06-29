@@ -1,9 +1,9 @@
-import member from '../model/MemberModel.js'
-
+// import member from '../model/MemberModel.js'
+import user1 from '../model/UserModel.js'
 
 export const adduser =  async (req,res) => {
     // console.log(req.body)
-    let {name,contact,address,email_id,image} = req.body 
+    let {name,contact,address,email_id,password} = req.body 
     // let {contact} = req.body 
     // let {email_id} = req.body
     // let {address} = req.body  
@@ -12,8 +12,8 @@ export const adduser =  async (req,res) => {
 
     try{
 
-        let newuser = new member({
-            name,contact,email_id,address,image
+        let newuser = new user1({
+            name,contact,email_id,address,password
             
         })
        let createdUser = await newuser.save() 
@@ -33,7 +33,7 @@ export const adduser =  async (req,res) => {
 // Backend API route to get all member details
 export const viewmember= async (req, res) => {
     try {
-      const members = await member.find();
+      const members = await user1.find();
       res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
       res.status(200).json({
         status: 'success',
@@ -55,7 +55,7 @@ export const deletemember=async (req,res) => {
   try {
     const {id}= req.params
   console.log(id)
- const dat= await member.findByIdAndRemove(id)
+ const dat= await user1.findByIdAndRemove(id)
  console.log(dat)
   res.json({data:'Deleted'})
   } catch (err) {
@@ -80,7 +80,7 @@ export const updatemember= async (req, res) => {
   
 
     // Perform the update operation using the ID and updated data
-    const updatedMember = await member.findByIdAndUpdate(
+    const updatedMember = await user1.findByIdAndUpdate(
       id,
       { name:name, contact:contact, email_id:email,address:address,image:image },{new:true}
     );
@@ -97,3 +97,28 @@ export const updatemember= async (req, res) => {
 //   await member.findByIdAndRemove(id).exec()
 //   res.send('Deleted')
 // })
+
+export const addmembership = async (req, res) => {
+  try {
+    const { id} = req.params; 
+    console.log(id);
+
+    const data = await user1.findByIdAndUpdate(id, { membership: true },{new:true});
+    console.log(data);
+
+    res.json({ data: 'updated' });
+  } catch (err) {
+    res.status(500).json({
+      status: 'error',
+      message: err.message,
+    });
+    console.log(err.message);
+  }
+}
+
+
+
+
+
+
+

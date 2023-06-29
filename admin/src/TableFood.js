@@ -6,6 +6,8 @@ function TableFood() {
   const [foods, setFoods] = useState([]);
   const [updateForm,setUpdateForm]=useState(false);
   const [updateFormData,setUpdateFormData]=useState([])
+  const [currentPage, setCurrentPage] = useState(1);
+  const [membersPerPage, setMembersPerPage] = useState(10);
   
   const fetchData = async () => {
     const response = await viewfood();
@@ -52,12 +54,12 @@ const handleUpdate=(item)=>{
 
 
   // Get current members
-  // const indexOfLastMember = currentPage * membersPerPage;
-  // const indexOfFirstMember = indexOfLastMember - membersPerPage;
-  // const currentMembers = foods.slice(indexOfFirstMember, indexOfLastMember);
+  const indexOfLastMember = currentPage * membersPerPage;
+  const indexOfFirstMember = indexOfLastMember - membersPerPage;
+  const currentMembers = foods.slice(indexOfFirstMember, indexOfLastMember);
 
   // // Change page
-  // const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className='pt-[10%]'>
@@ -94,7 +96,7 @@ const handleUpdate=(item)=>{
           <Food updateFormData={updateFormData} updateForm={updateForm}/> 
           }
 
-        {/* <div className="pagination mt-4">
+        <div className="pagination mt-4">
           {membersPerPage < foods.length && (
             <div className="flex">
               {[...Array(Math.ceil(foods.length / membersPerPage)).keys()].map((number) => (
@@ -110,7 +112,7 @@ const handleUpdate=(item)=>{
               ))}
             </div>
           )}
-        </div> */}
+        </div>
       </center>
     </div>
   );

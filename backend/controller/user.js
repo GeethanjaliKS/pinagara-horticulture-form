@@ -12,7 +12,7 @@ export const usereg =  async (req,res) => {
         name:name, contact:contact, email_id:email_id, address:address, password:password,membership:false
 
         }) 
-         
+         console.log(newuser)
         let createdUser = await newuser.save()
         console.log(createdUser)
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')

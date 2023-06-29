@@ -14,7 +14,12 @@ import Opening from './Opening';
 import Cart from './Cart';
 import Register from './Register';
 import Login from './Login';
+import { useState } from 'react';
+import Viewprofile from './Viewprofile';
+
+
 function App() {
+  
   return (
     <div> 
       
@@ -40,6 +45,7 @@ function App() {
    <Route exact path='/register' element={< Register />}></Route>
    <Route exact path='/cart' element={< Cart/>}></Route>
    <Route exact path='/login' element={< Login/>}></Route>
+   <Route exact path='/viewprofile' element={< Viewprofile/>}></Route>
     </Routes>
     <Footer/>
     </BrowserRouter>

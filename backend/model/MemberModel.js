@@ -1,14 +1,7 @@
 import mongoose from "mongoose"
-// import mongooseSequence from 'mongoose-sequence';
-// const AutoIncrement = mongooseSequence(mongoose);
+
 
 const userSchema = new mongoose.Schema({
-    // id: {
-    //      type: Number, 
-    //      unique: true ,
-    //     AutoIncrement:true
-    //     },
-
     name : {
         type : String,
         required : true
@@ -30,8 +23,6 @@ const userSchema = new mongoose.Schema({
         required : true
     }
 });
-// userSchema.plugin(AutoIncrement, {inc_field: 'id'});
-
 export default mongoose.model('member',userSchema)
 
 

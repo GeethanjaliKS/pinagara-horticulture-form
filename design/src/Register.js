@@ -36,8 +36,9 @@ function Register() {
     <div className="max-w-md mx-auto  pt-[2%]  ">
     
         <h1 className='text-center font-bold text-2xl my-2'>Registration Form</h1>
-        {successMessage && <p className="text-black-500">{successMessage}</p>}
+       
      <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded px-7 pt-10 pb-5 justify-center">
+     {successMessage && <p className="text-green-500 font-bold"style={{fontFamily:'Asap Condensed'}}>{successMessage}</p>}
        <div className="grid grid-cols-2 gap-4">
          <div>
            <label className="block text-gray-700 font-bold mb-2" htmlFor="name">

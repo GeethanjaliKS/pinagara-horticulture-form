@@ -6,12 +6,14 @@ import "./App.css"
 
 
 const Header = () => {
+
 const [toggle,setToggle]=useState(false);
 const handleClick =()=>{
   setToggle(!toggle);
 };
   return (
     <div>
+
     <header className=" bg-green-300 py-1 shadow-xl md:fixed left-0 right-0 top-0 z-40 " > 
       <div className="grid grid-cols-2 items-center justify-between mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* <List className='' size={20}> */}
@@ -68,6 +70,9 @@ const handleClick =()=>{
 
         
           
+          <Link to="/register">
+            <button type="button" className="text-white hover:text-gray-200 bg-gradient-to-r from-green-200 via-green-400 to-green-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-4 py-2 text-center mr-4 mb-4 w-30 invisible md:visible"style={{fontFamily:'Bruno Ace SC'}}   >Register</button>
+            </Link>
 
           {/* <Link
             to="/login"
@@ -76,9 +81,11 @@ const handleClick =()=>{
           >
             login
           </Link> */}
-          <Link to="/register">
-          <button type="button" className="text-white hover:text-gray-200 bg-gradient-to-r from-green-200 via-green-400 to-green-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-4 py-2 text-center mr-4 mb-4 w-30 invisible md:visible"style={{fontFamily:'Bruno Ace SC'}}   >Register</button>
-          </Link>
+         
+          
+           
+           
+    
 
           {/* <Link to="/cart" className="text-white hover:text-gray-200">
             <Cart size={20} />

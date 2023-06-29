@@ -4,7 +4,7 @@ import express from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-import {adduser, deletemember, updatemember, viewmember} from './controller/member.js'
+import {addmembership, adduser, deletemember, updatemember, viewmember} from './controller/member.js'
 import { addfood, deletefood, updatefood, viewfood } from "./controller/food.js";
 import { addfer,  deletefertilizer, updatefertilizer, viewfertilizer } from "./controller/fertilizer.js";
 import { addworker, deleteworker, updateworker, viewworker } from "./controller/worker.js";
@@ -62,3 +62,4 @@ app.patch('/updatemember/:id',updatemember)
 app.patch('/updateworker/:id',updateworker)
 app.patch('/updatefood/:id',updatefood)
 app.patch('/updatefertilizer/:id',updatefertilizer)
+app.patch('/addmembership/:id',addmembership)

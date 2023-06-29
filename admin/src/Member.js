@@ -18,14 +18,14 @@ function Member(props) {
     const [email, setEmail] = useState(updateFormData && updateFormData[0] && updateFormData[0].email_id || "");
     const [image, setImage] = useState(updateFormData && updateFormData[0] && updateFormData[0].image || "");
     const [successMessage, setSuccessMessage] = useState('');
-    
+    const [password,setPassword]=useState();
 
     const handleSubmit = async (e) => {
-      console.log(name,contactNumber,address,email,image)
+      console.log(name,contactNumber,address,email,password)
         e.preventDefault();
         console.log(updateForm)
         if(updateForm){
-          await updatemember({name:name,address:address,contact:contactNumber,email_id:email,image:image}).then((res)=>res.json()).then((res)=>console.log(res))
+          await updatemember({name:name,address:address,contact:contactNumber,email_id:email,image:image,password:password}).then((res)=>res.json()).then((res)=>console.log(res))
           console.log("Form submitted");
           // Handle form submission here
         setSuccessMessage('updated member successful!');
@@ -109,7 +109,22 @@ function Member(props) {
               onChange={(e) => setAddress(e.target.value)}
             ></textarea>
           </div>
-        </div> <br/> <div>
+        </div> <br/> 
+        <div>
+           <label className="block text-gray-700 font-bold mb-2" htmlFor="contactNumber">
+             Password
+           </label>
+           <input
+             className="appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
+             id="password"
+             type="password"
+             placeholder="Enter your password"
+             value={password}
+             onChange={(e) => setPassword(e.target.value)}
+           />
+         </div>
+        
+        <div>
         <FileBase
               type="file"
               multiple={false}

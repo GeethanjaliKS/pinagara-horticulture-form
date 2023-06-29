@@ -1,7 +1,9 @@
 import React,{ useEffect, useState } from 'react';
 import { login } from './Routes/Route';
+import './App.css'
 
 const Login= () => {
+  
   const [email_idOrContact, setEmailOrContact] = useState('');
   const [password, setPassword] = useState('');
   // const [email_id, setEmailId] = useState('');
@@ -9,6 +11,7 @@ const Login= () => {
   const [successMessage, setSuccessMessage] = useState(' ');
   const [errorMessage, setErrorMessage] = useState('');
   const [items, setItems] = useState('');
+  const [login,setLogin] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,13 +49,13 @@ const Login= () => {
 
   return (
   
-
+<div>
   
     <div className="flex items-center justify-center min-h-screen bg-green-200">
       <div className="w-full max-w-sm p-6 bg-white rounded shadow-md">
     
-      {successMessage && <p className="text-black-500 font-bold">{successMessage}</p>}
-        {errorMessage && <p className="text-red-500 font-bold">{errorMessage}</p>}
+      {successMessage && <p className="text-green-500 font-bold text-2xl style={{fontFamily:'Caprasimo'}}">{successMessage}</p>}
+        {errorMessage && <p className="text-red-500 font-bold text-2xl" style={{fontFamily:'Caprasimo'}}>{errorMessage}</p>}
         <h1 className="text-2xl font-semibold text-center">Login</h1>
         <form className="mt-6" onSubmit={handleSubmit}>
           <div>
@@ -93,6 +96,9 @@ const Login= () => {
           </div>
         </form>
       </div>
+      
+    </div>
+    
     </div>
   );
 };

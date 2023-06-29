@@ -4,8 +4,8 @@ import Workers from './Workers';
 
 function TableWorker() {
   const [workers, setWorkers] = useState([]);
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [membersPerPage, setMembersPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [membersPerPage, setMembersPerPage] = useState(10);
   const [updateForm,setUpdateForm]=useState(false);
   const [updateFormData,setUpdateFormData]=useState([])
 //view data
@@ -51,12 +51,12 @@ function TableWorker() {
    }
  }
   // Get current members
-  // const indexOfLastMember = currentPage * membersPerPage;
-  // const indexOfFirstMember = indexOfLastMember - membersPerPage;
-  // const currentMembers = workers.slice(indexOfFirstMember, indexOfLastMember);
+  const indexOfLastMember = currentPage * membersPerPage;
+  const indexOfFirstMember = indexOfLastMember - membersPerPage;
+  const currentMembers = workers.slice(indexOfFirstMember, indexOfLastMember);
 
-  // // Change page
-  // const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className='pt-[10%]'>
@@ -97,7 +97,7 @@ function TableWorker() {
                }
                   
 
-        {/* <div className="pagination mt-4">
+        <div className="pagination mt-4">
           {membersPerPage < workers.length && (
             <div className="flex">
               {[...Array(Math.ceil(workers.length / membersPerPage)).keys()].map((number) => (
@@ -113,7 +113,7 @@ function TableWorker() {
               ))}
             </div>
           )}
-        </div> */}
+        </div>
       </center>
     </div>
   );

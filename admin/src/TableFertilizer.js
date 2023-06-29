@@ -6,6 +6,9 @@ function TableFertilizer() {
   const [fertilizers, setFertilizers] = useState([]);
   const [updateForm,setUpdateForm]=useState(false);
   const [updateFormData,setUpdateFormData]=useState([])
+  const [currentPage, setCurrentPage] = useState(1);
+  const [membersPerPage, setMembersPerPage] = useState(10);
+
   const fetchData = async () => {
     const response = await viewfertilizer();
     const data = await response.json();
@@ -49,12 +52,12 @@ function TableFertilizer() {
    }
   }
   // Get current members
-  // const indexOfLastMember = currentPage * membersPerPage;
-  // const indexOfFirstMember = indexOfLastMember - membersPerPage;
-  // const currentMembers = fertilizers.slice(indexOfFirstMember, indexOfLastMember);
+  const indexOfLastMember = currentPage * membersPerPage;
+  const indexOfFirstMember = indexOfLastMember - membersPerPage;
+  const currentMembers = fertilizers.slice(indexOfFirstMember, indexOfLastMember);
 
-  // // Change page
-  // const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className='pt-[10%]'>
@@ -90,7 +93,7 @@ function TableFertilizer() {
 :
 <Fertilizer updateFormData={updateFormData} updateForm={updateForm}/> 
 }
-        {/* <div className="pagination mt-4">
+        <div className="pagination mt-4">
           {membersPerPage < fertilizers.length && (
             <div className="flex">
               {[...Array(Math.ceil(fertilizers.length / membersPerPage)).keys()].map((number) => (
@@ -106,7 +109,7 @@ function TableFertilizer() {
               ))}
             </div>
           )}
-        </div> */}
+        </div>
       </center>
     </div>
   );

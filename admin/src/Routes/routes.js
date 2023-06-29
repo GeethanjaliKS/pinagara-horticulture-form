@@ -308,5 +308,21 @@ export const adduser =async(data)=>{
             //     }
             //   };        
 
-
+            export const addmembership =async(id)=>{
+                try {
+                     console.log('data',id)
+                
+                    return await fetch(`http://127.0.0.1:4001/addmembership/${id}`,{
+                            method:"PATCH",
+                            body: JSON.stringify({_id:id}),
+                            headers:{
+                            "Content-Type":"application/json"
+            
+                        },
+                        });
+                      
+                } catch (error) {
+                    console.log(error.message)
+                }
+                }
               

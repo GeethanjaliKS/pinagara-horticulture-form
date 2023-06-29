@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { updatemember, viewmembers } from './Routes/routes';
+import { addmembership, updatemember, viewmembers } from './Routes/routes';
 import { deletememberapi } from './Routes/routes';
 import Member from './Member';
 
 
 function Table() {
   const [members, setMembers] = useState([]);
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [membersPerPage, setMembersPerPage] = useState(10);
-  // const [deletedMemberId, setDeletedMemberId] = useState(null);
-  // const [currentMembers,setCurrentMembers]=useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [membersPerPage, setMembersPerPage] = useState(10);
+  const [deletedMemberId, setDeletedMemberId] = useState(null);
+  const [currentMembers,setCurrentMembers]=useState([]);
   const [updateForm,setUpdateForm]=useState(false);
   const [updateFormData,setUpdateFormData]=useState([])
   const [searchInput, setSearchInput] = useState('');
   const [filteredMembers, setFilteredMembers] = useState([]);
+  const [membership, setMembership]= useState([]);
   
+  
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   
   //view details
   const fetchData = async () => {
@@ -62,23 +65,24 @@ const handleUpdate=(member)=>{
   }
 }
 
-const handleMember=(member)=>{
-  console.log(member)
+const handleMember= async(id)=>{
+  // console.log(id)
+  try {
+    const  response= await addmembership(id);
+    console.log(response)
+      const data = await response.json();
+      console.log(data.data)
+      
+       } catch (error) {
+         console.log(error.message);
+         // Handle error or show error notification
+       }
+     };
 
-  if (!member.membership) {
-    member.membership = true;
-}};
 
 
 
 
-  // Get current members
-//   const indexOfLastMember = currentPage * membersPerPage;
-//   const indexOfFirstMember = indexOfLastMember - membersPerPage;
-//  setMembers( members.slice(indexOfFirstMember, indexOfLastMember));
-//  console.log(members)
-//   // Change page
-//   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
 
 useEffect(() => {
@@ -98,7 +102,11 @@ useEffect(() => {
   });
 
   setFilteredMembers(filteredMembers);
-}, [searchInput, members]);
+
+ const indexOfLastMember = currentPage * membersPerPage;
+  const indexOfFirstMember = indexOfLastMember - membersPerPage;
+  setCurrentMembers(members.slice(indexOfFirstMember, indexOfLastMember));
+}, [searchInput, members, currentPage, membersPerPage]);
 
 
   return (
@@ -149,29 +157,26 @@ useEffect(() => {
 
 <td className="border border-slate-300   "><button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(member) }>Upadte</button>
 </td>
-<td className="border border-slate-300">
+<td>
   {member.membership ? (
-    <span>Membership added</span>
+    <p className='font-bold text-green-600'>membership added</p>
   ) : (
-    <button
-      className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
-      onClick={() => handleMember(member)}
-    >
+    <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => handleMember(member._id)}>
       Add membership
     </button>
+  
   )}
+  
 </td>
-
-
-              </tr>
-              ))}
+</tr>
+))}
           </tbody>
         </table>
         :
 <Member updateFormData={updateFormData} updateForm={updateForm}/> 
 }
 
-        {/* <div className="pagination mt-4">
+        <div className="pagination mt-4">
           {membersPerPage < members.length && (
             <div className="flex">
               {[...Array(Math.ceil(members.length / membersPerPage)).keys()].map((number) => (
@@ -187,7 +192,7 @@ useEffect(() => {
               ))}
             </div>
           )}
-        </div> */}
+        </div>
       </center>
     </div>
 
