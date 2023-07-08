@@ -1,223 +1,210 @@
-import React from "react";
-import './App.css'
+import React, { useState,useEffect } from 'react';
+import { viewcart, viewcartdetails } from './Routes/Route';
+import OrderView from './OrderView';
 
-const SummaryPage = () => {
-  return (
-    <section className="bg-gray-100 max-h-screen">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="bg-white rounded shadow-lg p-8">
-          <h2 className="text-2xl font-semibold mb-6" style={{fontFamily:'Carter One'}}>MY CART</h2>
-          <table className="w-full center">
-            <thead>
-              <tr>
-                <th className="py-2">Name</th>
-                <th className="py-2">Description</th>
-                <th className="py-2">Quantity</th>
-                <th className="py-2">Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div className="flex items-center">
-                    <img
-                      src="https://i.imgur.com/2DsA49b.webp"
-                      alt="Book"
-                      className="rounded-3 w-28"
-                    />
-                    <div className="flex flex-col ms-2">
-                      <p className="mb-2">Chips</p>
-                      
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <p className="mb-0 font-semibold">jhejfhjfefjbehfhegwk</p>
-                </td>
-                <td>
-                  <div className="flex items-center">
-                    {/* decrement button */}
-                    <button className="px-2 text-blue-500">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-5 w-5"
-                      >
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                      </svg>
-                    </button>
-                    {/* quantity input */}
-                    <input
-                      type="number"
-                      className="w-16 border border-gray-300 text-center"
-                      defaultValue={2}
-                      min={0}
-                    />
-                    {/* increment button */}
-                    <button className="px-2 text-blue-500">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-5 w-5"
-                      >
-                        <line x1="12" y1="5" x2="12" y2="19" />
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                      </svg>
-                    </button>
-                  </div>
-                </td>
-                <td>
-                  <p className="mb-0 font-semibold">$9.99</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div className="flex items-center">
-                    <img
-                      src="https://i.imgur.com/Oj1iQUX.webp"
-                      alt="Book"
-                      className="rounded-3 w-28"
-                    />
-                    <div className="flex flex-col ms-4">
-                      <p className="mb-2">Homo Deus: A Brief History of Tomorrow</p>
-                      <p className="mb-0">Yuval Noah Harari</p>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <p className="mb-0 font-semibold">Paperback</p>
-                </td>
-                <td>
-                  <div className="flex items-center">
-                    {/* decrement button */}
-                    <button className="px-2 text-blue-500">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-5 w-5"
-                      >
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                      </svg>
-                    </button>
-                    {/* quantity input */}
-                    <input
-                      type="number"
-                      className="w-16 border border-gray-300 text-center"
-                      defaultValue={1}
-                      min={0}
-                    />
-                    {/* increment button */}
-                    <button className="px-2 text-blue-500">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-5 w-5"
-                      >
-                        <line x1="12" y1="5" x2="12" y2="19" />
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                      </svg>
-                    </button>
-                  </div>
-                </td>
-                <td>
-                  <p className="mb-0 font-semibold">$13.50</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div className="bg-white rounded shadow-lg p-8 mt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <h2 className="text-xl font-semibold mb-4">Payment Options</h2>
-              <div className="flex items-center mb-4">
-                <input
-                  type="radio"
-                  className="form-radio h-4 w-4 text-blue-500"
-                  checked
-                />
-                <span className="ml-2">Credit Card</span>
-              </div>
-              <div className="flex items-center mb-4">
-                <input
-                  type="radio"
-                  className="form-radio h-4 w-4 text-blue-500"
-                />
-                <span className="ml-2">Debit Card</span>
-              </div>
-              <div className="flex items-center mb-4">
-                <input
-                  type="radio"
-                  className="form-radio h-4 w-4 text-blue-500"
-                />
-                <span className="ml-2">PayPal</span>
-              </div>
-            </div>
-            <div>
-              <h2 className="text-xl font-semibold mb-4">Payment Details</h2>
-              <div className="mb-4">
-                <label className="block text-sm font-medium">Name on card</label>
-                <input
-                  type="text"
-                  className="w-full border border-gray-300 rounded px-3 py-2"
-                  placeholder="John Smith"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-sm font-medium">Card number</label>
-                <input
-                  type="text"
-                  className="w-full border border-gray-300 rounded px-3 py-2"
-                  placeholder="1234 5678 9012 3456"
-                />
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium">Expiration</label>
-                  <input
-                    type="text"
-                    className="w-full border border-gray-300 rounded px-3 py-2"
-                    placeholder="MM/YY"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium">CVV</label>
-                  <input
-                    type="text"
-                    className="w-full border border-gray-300 rounded px-3 py-2"
-                    placeholder="123"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <button className="bg-blue-500 text-white py-2 px-4 mt-8 rounded">
-            Place Order
-          </button>
-        </div>
+
+
+const CartItem = ({ item, removeItem, incrementQuantity, decrementQuantity }) => {
+
+  const[itemDetails,setItemDetails]=useState([])
+  // const [name,setName]= useState([]);
+  // const [cost,setCost] = useState([]);
+  // const [description,setDescriptionescription]=useState([])
+    // const [userId,setUserId]=useState('')
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userData = JSON.parse(localStorage.getItem('user'));
+        console.log("userdata", userData._id);
+        // 64a8e297529bbf1d1e3edeb2
+   await viewcart(userData._id);
+  //  console.log(res)
+  const response= await viewcart(userData._id);
+  console.log(response)
+  const data=await response.json();
+  console.log("details",data)
+  setItemDetails(data.itemDetails)
+
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    fetchData();
+  }, []);
+
+  
+ 
+ return (
+    <div className="flex flex-col md:flex-row items-center justify-between p-4 border-b border-gray-200">
+{itemDetails.map((item) => (
+  <div key={item} className="flex items-center space-x-4 mb-4 md:mb-0">
+    <img src={item.image} alt={item.name} className="w-12 h-12" />
+    <div>
+      <h2 className="text-lg font-semibold">{item.name}</h2>
+      <p className="text-gray-500">${item.cost}</p>
+      <p className="text-gray-500">{item.description}</p>
+    </div>
+  </div> 
+))}
+
+      {/* <div className="flex items-center space-x-2">
+        <button
+          onClick={() => decrementQuantity(item.id)}
+          className="text-gray-500 font-semibold hover:text-gray-700 focus:outline-none focus:text-gray-700"
+        >
+          -
+        </button>
+        <span>{item.quantity}</span>
+        <button
+          onClick={() => incrementQuantity(item.id)}
+          className="text-gray-500 font-semibold hover:text-gray-700 focus:outline-none focus:text-gray-700"
+        >
+          +
+        </button>
       </div>
-    </section>
+      <button
+        onClick={() => removeItem(item.id)}
+        className="text-red-500 font-semibold hover:text-red-700 focus:outline-none focus:text-red-700 mt-4 md:mt-0"
+      >
+        Remove
+      </button> */}
+  
+    </div>
   );
 };
 
-export default SummaryPage;
+const Cart = ({ items, removeItem, incrementQuantity, decrementQuantity }) => {
+  return (
+    <div className="p-4 border rounded shadow">
+      <h1 className="text-2xl font-semibold mb-4">Cart</h1>
+      {items.length === 0 ? (
+        <p className="text-gray-500">Your cart is empty.</p>
+      ) : (
+        items.map((item) => (
+          <CartItem
+            key={item.id}
+            item={item}
+            removeItem={removeItem}
+            incrementQuantity={incrementQuantity}
+            decrementQuantity={decrementQuantity}
+          />
+        ))
+      )}
+    </div>
+  );
+};
+
+// const Payment = ({ total, applyDiscount, handlePayment }) => {
+//   const [discountCode, setDiscountCode] = useState('');
+//   const [discountError, setDiscountError] = useState('');
+
+//   const handleApplyDiscount = () => {
+//     if (discountCode === 'DISCOUNT10') {
+//       applyDiscount(0.1); // Apply 10% discount
+//       setDiscountError('');
+//     } else {
+//       setDiscountError('Invalid discount code.');
+//     }
+//   };
+
+//   return (
+//     <div className="p-4 border rounded shadow">
+//       <h1 className="text-2xl font-semibold mb-4">Payment</h1>
+//       <p className="text-lg">Total: ${total.toFixed(2)}</p>
+//       <div className="mt-4">
+//         <input
+//           type="text"
+//           placeholder="Discount code"
+//           className="border p-2"
+//           value={discountCode}
+//           onChange={(e) => setDiscountCode(e.target.value)}
+//         />
+//         <button
+//           onClick={handleApplyDiscount}
+//           className="ml-2 bg-blue-500 text-white px-4 py-2 rounded font-semibold"
+//         >
+//           Apply Discount
+//         </button>
+//         {discountError && <p className="text-red-500">{discountError}</p>}
+//       </div>
+//       <button
+//         onClick={handlePayment}
+//         className="mt-4 bg-blue-500 text-white px-4 py-2 rounded font-semibold"
+//       >
+//         Pay Now
+//       </button>
+//     </div>
+//   );
+// };
+
+const App = () => {
+  const [cartItems, setCartItems] = useState([
+    { id: 1, name: 'Product 1', price: 1, quantity: 1, image: 'product1.jpg' },
+    // { id: 2, name: 'Product 2', price: 15.49, quantity: 1, image: 'product2.jpg' },
+    // { id: 3, name: 'Product 3', price: 5.99, quantity: 1, image: 'product3.jpg' },
+  ]);
+
+  const [discount, setDiscount] = useState(0);
+
+  const removeItem = (itemId) => {
+    setCartItems(cartItems.filter((item) => item.id !== itemId));
+  };
+
+  const incrementQuantity = (itemId) => {
+    setCartItems(
+      cartItems.map((item) =>
+        item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
+
+  const decrementQuantity = (itemId) => {
+    setCartItems(
+      cartItems.map((item) =>
+        item.id === itemId && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+    );
+  };
+
+  const calculateTotal = () => {
+    const subtotal = cartItems.reduce(
+      (total, item) => total + item.cost * item.quantity,
+      0
+    );
+    return subtotal - subtotal * discount;
+  };
+
+  const applyDiscount = (discountRate) => {
+    setDiscount(discountRate);
+  };
+
+  const handlePayment = () => {
+    // Handle the payment logic here
+    console.log('Payment processed!');
+  };
+
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-4xl font-semibold mb-8">Simple View Cart and Payment</h1>
+      <div className="grid md:grid-cols-2 gap-8">
+        <Cart
+          items={cartItems}
+          removeItem={removeItem}
+          incrementQuantity={incrementQuantity}
+          decrementQuantity={decrementQuantity}
+        />
+        {/* <Payment
+          total={calculateTotal()}
+          applyDiscount={applyDiscount}
+          handlePayment={handlePayment}
+        /> */}
+      </div>
+    </div>
+  );
+};
+
+export default App;

@@ -2,7 +2,7 @@ import React,{ useEffect, useState } from 'react';
 import { login } from './Routes/Route';
 import './App.css'
 
-const Login= () => {
+const Login= ({setIsLoggedIn}) => {
   
   const [email_idOrContact, setEmailOrContact] = useState('');
   const [password, setPassword] = useState('');
@@ -10,8 +10,8 @@ const Login= () => {
   // const [contact, setContact] = useState('');
   const [successMessage, setSuccessMessage] = useState(' ');
   const [errorMessage, setErrorMessage] = useState('');
-  const [items, setItems] = useState('');
-  const [login,setLogin] = useState(false)
+  // const [items, setItems] = useState('');
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,6 +20,7 @@ const Login= () => {
   await login({emailOrContact:email_idOrContact,password:password}).then((res)=>res.json()).then((res)=>{
     if(res.message === 'login successful')
     {
+      setIsLoggedIn(true)
       localStorage.setItem("user",JSON.stringify(res.data))
       const user=localStorage.getItem("user")
       console.log(user)

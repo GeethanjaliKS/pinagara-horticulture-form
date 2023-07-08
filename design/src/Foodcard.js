@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { viewfood,storefood } from "./Routes/Route";
+import { viewfood } from "./Routes/Route";
 import './App.css'
 // import Card from "./Card"; // import your card component here
 
@@ -27,10 +27,10 @@ function Foodcard() {
     fetchData();
   }, []);
 
-  const addToCart = async (e) => {
-    e.preventDefault();
-    await storefood({name:name,description:description,cost:cost,image:image})
-  }
+  // const addToCart = async (e) => {
+  //   e.preventDefault();
+  //   await storefood({name:name,description:description,cost:cost,image:image})
+  // }
   
   return (
     <div>
@@ -46,7 +46,7 @@ function Foodcard() {
           <h2 className="font-bold text-xl mb-2">{foods.name}</h2>
           <p className="text-gray-700 text-base">{foods.description}</p>
           <p className="text-gray-700 text-base mt-2">$Price {foods.cost}</p>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-2 " onClick={(e) => addToCart(foods)}>Add to Cart</button>
+          {/* <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-2 " onClick={(e) => addToCart(foods)}>Add to Cart</button> */}
         </div>
       </div>
     ))}

@@ -14,7 +14,10 @@ function Table() {
   const [updateFormData,setUpdateFormData]=useState([])
   const [searchInput, setSearchInput] = useState('');
   const [filteredMembers, setFilteredMembers] = useState([]);
-  const [membership, setMembership]= useState([]);
+  const [membership, setMembership] = useState( false );
+  // console.log(membership)
+
+  
   
   
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -65,24 +68,18 @@ const handleUpdate=(member)=>{
   }
 }
 
-const handleMember= async(id)=>{
-  // console.log(id)
+// add membership
+const handleMember = async (id) => {
   try {
-    const  response= await addmembership(id);
-    console.log(response)
-      const data = await response.json();
-      console.log(data.data)
-      
-       } catch (error) {
-         console.log(error.message);
-         // Handle error or show error notification
-       }
-     };
-
-
-
-
-
+    const response = await addmembership(id);
+    const data = await response.json();
+    console.log('member', data);
+   setMembership(true)
+  } catch (error) {
+    console.log(error.message);
+    console.log('Error updating membership');
+  }
+};
 
 
 useEffect(() => {
@@ -111,12 +108,13 @@ useEffect(() => {
 
   return (
     
-     
-    <div className='pt-[10%]'>
-        <div className="mb-3">
+    <div >
+      <h1  className="caption-top font-bold text-lg pt-10 font-serif pt-[10%] text-center">MEMBER DETAILS</h1>
+    <div className=''>
+        <div className="mb-3 ">
         <input
           type="search"
-          className="relative m-0 w-1/2 min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+          className="relative   ml-[65%] mr-[5%] w-1/4 min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
           id="exampleSearch"
           placeholder="Search"
           value={searchInput}
@@ -126,7 +124,8 @@ useEffect(() => {
       <center>
       {(!updateForm )?
         <table className="border-collapse border border-slate-400 bg-slate-100 ">
-          <caption className="caption-top font-bold text-lg pt-10 font-serif">MEMBER DETAILS</caption>
+          {/* <caption className="caption-top font-bold text-lg pt-10 font-serif">MEMBER DETAILS</caption> */}
+          
           <thead>
             <tr>
             <th className="border border-slate-300">Member ID</th>
@@ -135,7 +134,9 @@ useEffect(() => {
               <th className="border border-slate-300">CONTACT NUMBER</th>
               <th className="border border-slate-300">EMAIL-ID</th>
               <th className="border border-slate-300">IMAGE</th>
-              {/* <th className="border border-slate-300">DELETE BUTTON</th> */}
+              <th className="border border-slate-300">DELETE</th>
+              <th className="border border-slate-300">UPDATE</th>
+              <th className="border border-slate-300">MEMBERSHIP</th>
             </tr>
           </thead>
           <tbody>
@@ -151,22 +152,30 @@ useEffect(() => {
                 <td className="border border-slate-300 ">
                   <img src={member.image} alt={member.name} className="w-20 h-20 object-cover mt-3 mb-3" />
                 </td>
+                
                 <td className="border border-slate-300   "><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(member._id)}>Delete</button>
 </td>
 
 
 <td className="border border-slate-300   "><button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(member) }>Upadte</button>
 </td>
+
+
 <td>
-  {member.membership ? (
-    <p className='font-bold text-green-600'>membership added</p>
-  ) : (
-    <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => handleMember(member._id)}>
-      Add membership
-    </button>
   
-  )}
-  
+{!member.membership ? (
+  <button
+  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
+  onClick={() => handleMember(member._id)}
+ >
+  Add membership
+ </button>
+) : (
+  <div>
+  <p className='font-bold text-green-600'>Membership added</p></div>
+)}
+   
+    
 </td>
 </tr>
 ))}
@@ -194,7 +203,7 @@ useEffect(() => {
           )}
         </div>
       </center>
-    </div>
+    </div></div> 
 
 
  );

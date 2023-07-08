@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { viewfertilizer,storecart } from "./Routes/Route";
+import { viewfertilizer,storecart} from "./Routes/Route";
 // import Card from "./Card"; // import your card component here
 
 function Fertilizercart() {
@@ -17,6 +17,7 @@ function Fertilizercart() {
   const fetchData = async () => {
     const response = await viewfertilizer();
     const data = await response.json();
+    console.log(data)
     setFertilizers(data.data.fertilizers);
 
   };
@@ -25,9 +26,12 @@ function Fertilizercart() {
     fetchData();
   }, []);
 
-  const addToCart = async (e) => {
-    e.preventDefault();
-    await storecart({name:name,description:description,cost:cost,image:image})
+  const addToCart=async (fertilizerId)=> {
+  
+    const userData = JSON.parse(localStorage.getItem('user'));
+     const data = { userData, fertilizerId };
+    await storecart({userId:userData,itemId:fertilizerId})
+  
   }
 
   
@@ -46,7 +50,7 @@ function Fertilizercart() {
                 <h2 className="font-bold text-xl mb-2">{fertilizer.name}</h2>
                 <p className="text-gray-700 text-base">{fertilizer.description}</p>
                 <p className="text-gray-700 text-base mt-2">$Price {fertilizer.cost}</p>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-2" onClick={(e) => addToCart(fertilizer)}>Add to Cart</button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-2" onClick={() => addToCart(fertilizer._id)}>Add to Cart</button>
               </div>
             </div>
           ))}

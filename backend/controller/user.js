@@ -1,7 +1,9 @@
-import user1 from '../model/UserModel.js'
 
+import user1 from '../model/UserModel.js'
+import cart from '../model/CartModel.js'
+import admin from '../model/AdminLoginModel.js';
 export const usereg =  async (req,res) => {
-    let { name, contact, address, email_id, password} = req.body
+    let { name, contact, address, email_id, password,image} = req.body
 
     // console.log(req.body)
 
@@ -9,12 +11,21 @@ export const usereg =  async (req,res) => {
     try {
 
         let newuser = new user1({
-        name:name, contact:contact, email_id:email_id, address:address, password:password,membership:false
+        name:name, contact:contact, email_id:email_id, address:address, password:password,membership:false,image:image
 
         }) 
          console.log(newuser)
         let createdUser = await newuser.save()
-        console.log(createdUser)
+    
+        let usercart= new cart({userId:newuser._id,item:[ '']})
+        let createdCart=await usercart.save()
+        console.log(createdCart)
+    
+    //   console.log(user)
+     
+
+
+        // console.log(createdUser)
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
         // used for connect front end
         res.status(201).json({
@@ -26,4 +37,57 @@ export const usereg =  async (req,res) => {
     } catch (err) {
         console.log(err)
     }
+}
+
+
+//login user
+
+export const loginUser =  async (req,res) =>{
+
+    const { email_idOrContact, password } = req.body;
+    console.log(req.body)
+
+    try{
+      
+  const user = await user1.findOne({
+    $and: [
+      {
+        $or: [
+          { email_idOrContact: email_idOrContact },
+          { email_idOrContact: email_idOrContact },
+        ],
+      },
+      { password:password },
+    ],
+  })
+          console.log(user)
+          // return res.status(200).json({message:"login successful"})
+          
+         if(user){
+          return res.status(200).json({message:"login successful",data:user})
+         } else
+         {
+          return res.status(200).json({message:"Give correct information"})
+         } 
+       
+        } catch (error) {
+          console.log(error);
+          return res.status(500).json({ message: 'Internal server error' });
+        }
+      };
+
+export const adminLogin= async(req,res)=>{
+
+  const {name,password} =req.body;
+  try{
+  const admindetails= await admin.findOne({name:name,password:password})
+  if(admindetails.name && admindetails.password){
+    console.log("admin login success")
+  } else{
+    console.log("Incorrect password")
+  }
+  }catch(error)
+  {
+   console.log(error)
+  }
 }

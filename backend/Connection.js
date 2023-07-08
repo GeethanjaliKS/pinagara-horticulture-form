@@ -9,8 +9,10 @@ import { addfood, deletefood, updatefood, viewfood } from "./controller/food.js"
 import { addfer,  deletefertilizer, updatefertilizer, viewfertilizer } from "./controller/fertilizer.js";
 import { addworker, deleteworker, updateworker, viewworker } from "./controller/worker.js";
 // import {  carts } from "./controller/cart.js";
-import {   usereg } from "./controller/user.js";
-import {  loginUser } from "./controller/Login.js";
+import {   usereg,loginUser, adminLogin } from "./controller/user.js";
+// import {  loginUser } from "./controller/Login.js";
+import {  storecart, viewcart } from "./controller/cart.js";
+// import { viewcart } from "./controller/viewCart.js";
 // import { addadmin } from "./controller/admin.js";
 
 const app = express()
@@ -36,8 +38,9 @@ app.post('/addfood',addfood)
 app.post('/addfer',addfer)
 app.post('/addworker',addworker)
 // app.post('./admin',addadmin)
-// app.post('/cart',cartstore)
-// app.post('/cart', carts)
+app.post('/storecart',storecart)
+app.post('/viewcart/:id',viewcart)
+
 app.post('/usereg',usereg)
 app.post('/login',loginUser)
 
@@ -47,7 +50,8 @@ app.get('/viewmember',viewmember)
 app.get('/viewfood',viewfood)
 app.get('/viewfertilizer',viewfertilizer)
 app.get('/viewworker',viewworker)
-
+// app.get('/viewcartdetails',viewcart)
+app.get('/adminlogin',adminLogin)
 
 //delete details
 

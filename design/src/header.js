@@ -1,11 +1,11 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom';
 import pic from './images/Logo.png'
-import { List,Cart } from 'react-bootstrap-icons';
+import { List,Cart,Person} from 'react-bootstrap-icons';
 import "./App.css"
 
 
-const Header = () => {
+const Header = ({ isLoggedIn }) => {
 
 const [toggle,setToggle]=useState(false);
 const handleClick =()=>{
@@ -68,11 +68,22 @@ const handleClick =()=>{
             Worker
           </Link>
 
-        
+          {isLoggedIn ? (
+          <>
+             <Link to="/cart" className="text-white hover:text-gray-200 font-medium text-base font-serif invisible md:visible">
+      <Cart size={40} />
+    </Link>
+          
+    <Link to="/viewprofile" className="text-white hover:text-gray-200 font-medium text-base font-serif invisible md:visible">
+      <Person size={40} />
+    </Link>
+          </>
+        ) :(
           
           <Link to="/register">
             <button type="button" className="text-white hover:text-gray-200 bg-gradient-to-r from-green-200 via-green-400 to-green-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-4 py-2 text-center mr-4 mb-4 w-30 invisible md:visible"style={{fontFamily:'Bruno Ace SC'}}   >Register</button>
             </Link>
+        )}
 
           {/* <Link
             to="/login"

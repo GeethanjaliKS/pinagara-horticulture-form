@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { usereg } from './Routes/Route';
 import './App.css';
+import FileBase from 'react-file-base64';
 
 function Register() {
     const [name, setName] = useState('');
@@ -8,13 +9,14 @@ function Register() {
     const [password, setPassword] = useState('');
     const [contactNumber, setContactNumber] = useState('');
     const [emailId, setEmailId] = useState('');
+    const [image, setImage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
 
 
     const handleSubmit = async (e) => {
       // console.log(name,contactNumber,address,emailId,password)
         e.preventDefault();
-       const user=   await usereg({name:name,address:address,contact:contactNumber,email_id:emailId,password:password}).then((res)=>res.json()).then((res)=>console.log(res))
+       const user=   await usereg({name:name,address:address,contact:contactNumber,email_id:emailId,password:password,image:image}).then((res)=>res.json()).then((res)=>console.log(res))
        console.log(user)   
        console.log("Form submitted");
           setSuccessMessage('user registered successfully!');
@@ -24,6 +26,7 @@ function Register() {
           setContactNumber("");
           setPassword("");
           setEmailId("");
+          setImage("");
         }
        
 
@@ -107,6 +110,13 @@ function Register() {
            />
          </div>
          <br/>
+         <div>
+         <FileBase
+              type="file"
+              multiple={false}
+              onDone={({base64}) => setImage(base64)}
+              />      
+              </div> <br/>
       
        <div className="flex items-center justify-center mt-4">
          <button

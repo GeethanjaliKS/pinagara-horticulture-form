@@ -34,8 +34,8 @@ export const viewfood =async(data)=>{
 
         export const storecart =async(data)=>{
             try {
-                console.log('data',data)
-                return await fetch(`http://127.0.0.1:4001/cart`,{
+                // console.log('cartdata',data)
+                return await fetch(`http://127.0.0.1:4001/storecart`,{
                         // mode: 'no-cors',
                         method:"POST",
                         body: JSON.stringify(data),
@@ -49,13 +49,14 @@ export const viewfood =async(data)=>{
             }
             }
 
-            export const storefood =async(data)=>{
+
+            export const viewcart =async(data)=>{
                 try {
-                    console.log('data',data)
-                    return await fetch(`http://127.0.0.1:4001/cart`,{
+                    console.log('viewcartuserid',data)
+                    return await fetch(`http://127.0.0.1:4001/viewcart/${data}`,{
                             // mode: 'no-cors',
                             method:"POST",
-                            body: JSON.stringify(data),
+                            // body: JSON.stringify(data),
                             headers:{
                             "Content-Type":"application/json"
             
@@ -65,6 +66,41 @@ export const viewfood =async(data)=>{
                     console.log(error.message)
                 }
                 }
+
+//   export const viewcartdetails =async(data)=>{
+//                 try {
+//                     console.log('viewcartdetails',data)
+//                     return await fetch(`http://127.0.0.1:4001/viewcartdetails`,{
+//                             // mode: 'no-cors',
+//                             method:"GET",
+//                             body: JSON.stringify(data),
+//                             headers:{
+//                             "Content-Type":"application/json"
+            
+//                         },
+//                         })
+//                 } catch (error) {
+//                     console.log(error.message)
+//                 }
+//                 }
+
+
+            // export const storefood =async(data)=>{
+            //     try {
+            //         console.log('data',data)
+            //         return await fetch(`http://127.0.0.1:4001/cart`,{
+            //                 // mode: 'no-cors',
+            //                 method:"POST",
+            //                 body: JSON.stringify(data),
+            //                 headers:{
+            //                 "Content-Type":"application/json"
+            
+            //             },
+            //             })
+            //     } catch (error) {
+            //         console.log(error.message)
+            //     }
+            //     }
     
     //user register
     export const usereg =async(data)=>{

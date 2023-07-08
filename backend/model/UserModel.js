@@ -23,8 +23,12 @@ const userSchema = new mongoose.Schema({
         required : true
     },
     membership:{
-        type:String,
+        type:Boolean,
         required: true
+    },
+    image:{
+        type : String,
+        required : true
     }
 
 

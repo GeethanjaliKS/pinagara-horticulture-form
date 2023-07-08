@@ -34,11 +34,14 @@ export const adduser =  async (req,res) => {
 export const viewmember= async (req, res) => {
     try {
       const members = await user1.find();
+    const totalCount= await user1.count()
+    console.log(totalCount);
+      
       res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
       res.status(200).json({
         status: 'success',
         data: {
-          members,
+          members,totalCount
         },
       });
     } catch (err) {

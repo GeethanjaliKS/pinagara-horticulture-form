@@ -16,15 +16,16 @@ import Register from './Register';
 import Login from './Login';
 import { useState } from 'react';
 import Viewprofile from './Viewprofile';
+import OrderView from './OrderView';
 
 
 function App() {
-  
+  const [isLoggedIn,setIsLoggedIn] = useState(false)
   return (
     <div> 
       
       <BrowserRouter>
-      <Header/><br/><br/><br/>
+      <Header isLoggedIn={isLoggedIn}/><br/><br/><br/>
       
       {/* <About/>
       <Team/>
@@ -44,8 +45,9 @@ function App() {
    <Route exact path='/opening' element={< Opening />}></Route>
    <Route exact path='/register' element={< Register />}></Route>
    <Route exact path='/cart' element={< Cart/>}></Route>
-   <Route exact path='/login' element={< Login/>}></Route>
+   <Route exact path='/login' element={< Login  setIsLoggedIn={setIsLoggedIn}/>}></Route>
    <Route exact path='/viewprofile' element={< Viewprofile/>}></Route>
+   <Route exact path='/orderview' element={< OrderView/>}></Route>
     </Routes>
     <Footer/>
     </BrowserRouter>
