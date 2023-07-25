@@ -11,6 +11,12 @@ const Admin = () => {
 
 
   const [toggle,setToggle]=useState(false);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen((prevState) => !prevState);
+  };
+
   const handleClick =()=>{
     setToggle(!toggle);
 
@@ -25,14 +31,14 @@ const Admin = () => {
       
       <div>
       <header className=" bg-gray-600 py-1 shadow-xl md:fixed left-0 right-0 top-0  ">
-        <div className="grid grid-cols-2 items-center justify-between mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 items-center justify-between mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
           {/* <List className='' size={20}> */}
   
           {/* <Link to="/" className="text-white font-bold text-xl"> */}
             <img src={pic} alt=" " height={80} width={80} />
           {/* </Link> */}
           
-          <nav className="flex space-x-10  relative">
+          <nav className="flex space-x-5  relative">
           {/* <nav className="nav"> */}
            <div className=' visible md:invisible absolute top-0 right-0' > 
            
@@ -66,12 +72,12 @@ const Admin = () => {
             >
               Food Details
             </Link>
-            <Link
-              to=" "
+            {/* <Link
+              to="/tableorder "
               className="text-white hover:text-gray-200 font-medium text-base font-serif invisible md:visible"
             >
               Order Details
-            </Link>
+            </Link> */}
             {/* <Link
               to="/login"
               
@@ -83,9 +89,61 @@ const Admin = () => {
       
           
            
-          </nav>
           
-          {/* </List> */}
+          
+            <div className="relative">
+      {/* Dropdown Button */}
+      <button
+        onClick={toggleDropdown}
+        className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded focus:outline-none"
+      >
+        Order Details
+      </button>
+
+      {/* Dropdown Content */}
+      <div
+        className={`origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 ${
+          isDropdownOpen ? 'block' : 'hidden'
+        }`}
+      >
+        <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+          {/* Dropdown Items */}
+          <a
+            href="/tableorder"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white"
+            role="menuitem"
+          >
+            Order Placed
+          </a>
+          <a
+            href="/tabledispat"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white"
+            role="menuitem"
+          >
+            Order Dispatch
+          </a>
+
+          <a
+            href="/tabledelivery"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white"
+            role="menuitem"
+          >
+            Order Delivery
+          </a>
+          
+          <a
+            href="/tablecancel"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white"
+            role="menuitem"
+          >
+            Cancelled Orders
+          </a>
+        </div>
+      </div>
+    </div>
+    </nav>
+
+
         </div>
         
       </header>

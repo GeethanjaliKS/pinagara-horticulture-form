@@ -8,27 +8,27 @@ function Footer() {
     <div className="container mx-auto py-8 px-4">
       <div className="flex flex-wrap">
         <div className="w-full lg:w-1/3 mb-8 lg:mb-0">
-          <h2 className="text-lg font-bold mb-4" style={{ fontFamily: 'Bruno Ace SC' }}>
-            PIGARA HORTICULTURE FORM
+          <h2 className="text-lg font-bold mb-4 text-blue-900" style={{ fontFamily: 'Bruno Ace SC' }}>
+            PINGAARA HORTICULTURE FORM
           </h2>
         </div>
         <div className="grid grid-rows-1 sm:grid-flow-col gap-4   ">
         <div>
-          <Link to="/" className="text-white" style={{ fontFamily: 'Bruno Ace SC' }}>
+          <Link to="/" className="text-blue-900" style={{ fontFamily: 'Bruno Ace SC' }}>
             About US
           </Link>
           </div>
           <div>
-          <Link to="/" className="text-white" style={{ fontFamily: 'Bruno Ace SC' }}>
+          <Link to="/" className="text-blue-900" style={{ fontFamily: 'Bruno Ace SC' }}>
             Contact US
           </Link>
           </div>
           <div>
-          <Link to="/" className="text-white" style={{ fontFamily: 'Bruno Ace SC' }}>
+          <Link to="/" className="text-blue-900" style={{ fontFamily: 'Bruno Ace SC' }}>
             Product & Services
           </Link>
           </div>
-          <Link to="/" className="text-white" style={{ fontFamily: 'Bruno Ace SC' }}>
+          <Link to="/" className="text-blue-900" style={{ fontFamily: 'Bruno Ace SC' }}>
             Opening Hours
           </Link>
         </div>

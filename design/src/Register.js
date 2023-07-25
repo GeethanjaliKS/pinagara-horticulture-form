@@ -34,13 +34,13 @@ function Register() {
 
 
   return (
-    <div className='bg-green-200 h-full pb-5 '>
+    <div className='bg-green-200 h-full pb-5'>
       
     <div className="max-w-md mx-auto  pt-[2%]  ">
     
-        <h1 className='text-center font-bold text-2xl my-2'>Registration Form</h1>
+        <h1 className='text-center font-extrabold text-3xl my-2' style={{fontFamily:'Bitter'}}>Registration Form</h1>
        
-     <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded px-7 pt-10 pb-5 justify-center">
+     <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded px-7 pt-10 pb-5 justify-center  shadow-md shadow-slate-600" >
      {successMessage && <p className="text-green-500 font-bold"style={{fontFamily:'Asap Condensed'}}>{successMessage}</p>}
        <div className="grid grid-cols-2 gap-4">
          <div>
@@ -128,7 +128,7 @@ function Register() {
        </div>
        
      </form>
-     <p className='text-md text-center' style={{fontFamily:"Robo Mono"}} >Please login Here   <a href='/login' className='font-bold underline'>Login</a></p>
+     <p className='text-xl text-center' style={{fontFamily:"Robo Mono"}} >Please login Here   <a href='/login' className='font-bold underline'>Login</a></p>
      
    </div>
    </div>

@@ -9,7 +9,7 @@ export const storecart = async (req, res) => {
       const Cart = await cart.findOneAndUpdate(
         { userId:userId },
         { $push: { items: itemId }});
-        // console.log('cart',Cart)
+        console.log('cart',Cart)
      res.json(cart);
     
     } catch (err) {
@@ -33,7 +33,7 @@ export const storecart = async (req, res) => {
   
       const itemDetails = await item.find({ _id: { $in: itemIds } });
   
-      //console.log('itemDetails', itemDetails);
+      console.log('itemDetails', itemDetails);
       // console.log('cart', cart);
 
      res.json({itemDetails:itemDetails});
@@ -44,5 +44,25 @@ export const storecart = async (req, res) => {
       res.status(500).json({ error: "An error occurred" });
     }
   };
+
+//delete cart
+export const deletecart=async (req,res) => {
+  try {
+    const {id}= req.params
+  console.log("id",id)
+
+ const dat= await cart.findByIdAndRemove(id)
+ console.log(dat)
+  res.json({data:'Deleted'})
+  } catch (err) {
+    res.status(500).json({
+      status: 'error',
+      message: err.message,
+      
+    });
+    console.log(err.message)
+  }
+  
+}
   
   

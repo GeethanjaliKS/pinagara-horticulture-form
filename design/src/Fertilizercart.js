@@ -37,26 +37,29 @@ function Fertilizercart() {
   
   return (
     <div>
-    <center>
-      <div className="mx-auto pt-[3%] bg-green-300 mb-1 drop-shadow-2xl shadow-green-300">
-        <h1 className="text-4xl font-bold mb-4 font-bold" style={{ fontFamily: 'Josefin Sans' }}>FERTILIZER</h1> <br />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ml-2 mr-2">
+    
+      <div className="mx-auto pt-[3%] bg-green-100 mb-1 drop-shadow-2xl shadow-green-300 ">
+        <h1 className="font-bold text-green-600 text-4xl inline-block  shadow-lg  shadow-green-300 mb-[2%] md:w-1/2 md:mx-96  sm:w-full mb-6 md:mb-10 ml-10 mr-10 rounded-lg p-[2%] text-center bg-white pb-[2%] " style={{ fontFamily: 'Bitter' }}>FERTILIZER</h1> <br />
+        <center>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ml-5 mr-2 pb-[3%] ">
           {fertilizer.map((fertilizer) => (
-            <div key={fertilizer.id} className="bg-gray-200 overflow-hidden hover:drop-shadow-xl rounded-lg">
-              <div className="relative h-48">
-                <img src={fertilizer.image} className="object-cover w-full h-full" alt={fertilizer.name} />
+            <div key={fertilizer.id} className=" flex bg-white-200 overflow-hidden  rounded-2xl  border-2 shadow-lg shadow-green-500 mb-[2%] hover:shadow-lg focus:shadow-lg border-4 relative m-6">
+              <div className=" ">
+                <img src={fertilizer.image} className="  " alt={fertilizer.name} />
               </div>
-              <div className="px-4 py-2">
-                <h2 className="font-bold text-xl mb-2">{fertilizer.name}</h2>
-                <p className="text-gray-700 text-base">{fertilizer.description}</p>
-                <p className="text-gray-700 text-base mt-2">$Price {fertilizer.cost}</p>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-2" onClick={() => addToCart(fertilizer._id)}>Add to Cart</button>
+              <div className="px-4 py-2 absolute bottom-0 bg-white w-full pb-6">
+                
+                <h2 className="font-bold text-2xl mb-2 "  style={{fontFamily:'Lugrasimo'}}>{fertilizer.name}</h2>
+                {/* <p className="text-gray-700 text-xl " style={{fontFamily:'Lugrasimo'}} >{fertilizer.description}</p> */}
+                <p className="text-gray-700 text-xl mt-2 " style={{fontFamily:'Lugrasimo'}}>Price <span className="font-bold ">{fertilizer.cost}/Kg</span></p>
+                <button className="bg-green-300 hover:bg-green-600 text-white font-bold py-2 px-4 w-full mt-2  " onClick={() => addToCart(fertilizer._id)}>Add to Cart</button>
               </div>
             </div>
           ))}
         </div>
+        </center>
       </div>
-    </center>
+    
   </div>
   
   

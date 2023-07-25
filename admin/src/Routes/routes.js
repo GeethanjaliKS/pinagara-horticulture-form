@@ -326,3 +326,147 @@ export const adduser =async(data)=>{
                 }
                 }
               
+                export const vieworder =async(data)=>{
+                    try {
+                        console.log('data',data)
+                        return await fetch(`http://127.0.0.1:4001/vieworder`,{
+                                // mode: 'no-cors',
+                                method:"GET",
+                                // body: JSON.stringify(data),
+                                headers:{
+                                "Content-Type":"application/json"
+                
+                            },
+                            })
+                    } catch (error) {
+                        console.log(error.message)
+                    }
+                    }
+
+
+// orderplcaed update
+export const orderstatus =async(id)=>{
+    try {
+         console.log('order',id)
+    
+        return await fetch(`http://127.0.0.1:4001/orderstatus/${id}`,{
+                method:"PATCH",
+                body: JSON.stringify({_id:id}),
+                headers:{
+                "Content-Type":"application/json"
+
+            },
+            });
+          
+    } catch (error) {
+        console.log(error.message)
+    }
+    }
+
+
+    // dispatch view
+    export const dispatchdata =async(data)=>{
+        try {
+            console.log('data',data)
+            return await fetch(`http://127.0.0.1:4001/dispatch`,{
+                    // mode: 'no-cors',
+                    method:"GET",
+                    // body: JSON.stringify(data),
+                    headers:{
+                    "Content-Type":"application/json"
+    
+                },
+                })
+        } catch (error) {
+            console.log(error.message)
+        }
+        }
+
+        export const orderdelivery =async(id)=>{
+            try {
+                 console.log('order',id)
+            
+                return await fetch(`http://127.0.0.1:4001/orderdelivery/${id}`,{
+                        method:"PATCH",
+                        body: JSON.stringify({_id:id}),
+                        headers:{
+                        "Content-Type":"application/json"
+        
+                    },
+                    });
+                  
+            } catch (error) {
+                console.log(error.message)
+            }
+            }
+
+            //delivery view
+            export const viewdelivery =async(data)=>{
+                try {
+                    console.log('data',data)
+                    return await fetch(`http://127.0.0.1:4001/viewdelivery`,{
+                            // mode: 'no-cors',
+                            method:"GET",
+                            // body: JSON.stringify(data),
+                            headers:{
+                            "Content-Type":"application/json"
+            
+                        },
+                        })
+                } catch (error) {
+                    console.log(error.message)
+                }
+                }
+
+                export const ordercancel =async(id)=>{
+                    try {
+                         console.log('order',id)
+                    
+                        return await fetch(`http://127.0.0.1:4001/ordercancel/${id}`,{
+                                method:"PATCH",
+                                body: JSON.stringify({_id:id}),
+                                headers:{
+                                "Content-Type":"application/json"
+                
+                            },
+                            });
+                          
+                    } catch (error) {
+                        console.log(error.message)
+                    }
+                    }
+
+                    export const deliverycancel =async(id)=>{
+                        try {
+                             console.log('order',id)
+                        
+                            return await fetch(`http://127.0.0.1:4001/deliverycancel/${id}`,{
+                                    method:"PATCH",
+                                    body: JSON.stringify({_id:id}),
+                                    headers:{
+                                    "Content-Type":"application/json"
+                    
+                                },
+                                });
+                              
+                        } catch (error) {
+                            console.log(error.message)
+                        }
+                        }
+
+                        export const viewcancel =async(data)=>{
+                            try {
+                                console.log('data',data)
+                                return await fetch(`http://127.0.0.1:4001/viewcancel`,{
+                                        // mode: 'no-cors',
+                                        method:"GET",
+                                        // body: JSON.stringify(data),
+                                        headers:{
+                                        "Content-Type":"application/json"
+                        
+                                    },
+                                    })
+                            } catch (error) {
+                                console.log(error.message)
+                            }
+                            }

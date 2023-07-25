@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { deletefertilizerapi, viewfertilizer } from './Routes/routes';
 import Fertilizer from './Fertilizer';
+import './App.css'
 
 function TableFertilizer() {
   const [fertilizers, setFertilizers] = useState([]);
@@ -64,27 +65,27 @@ function TableFertilizer() {
       <center>
       {(!updateForm )?
         <table className="border-collapse border border-slate-400 bg-slate-100">
-          <caption className="caption-top font-bold text-lg pt-10 font-serif">FERTILIZER DETAILS</caption>
+          <caption className="caption-top font-bold text-lg pt-10 font-serif" style={{fontFamily:'Righteous'}}>FERTILIZER DETAILS</caption>
           <thead>
             <tr>
-              <th className="border border-slate-300">NAME</th>
-              <th className="border border-slate-300">COST</th>
-              <th className="border border-slate-300">DESCRIPTION </th>
-              <th className="border border-slate-300">IMAGE</th>
+              <th className="border border-slate-300" style={{fontFamily:'Tektur'}}>NAME</th>
+              <th className="border border-slate-300" style={{fontFamily:'Tektur'}}>COST</th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>DESCRIPTION </th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>IMAGE</th>
             </tr>
           </thead>
           <tbody>
             {fertilizers.map((fertilizers) => (
               <tr key={fertilizers._id}>
-                <td className="border border-slate-300">{fertilizers.name}</td>
-                <td className="border border-slate-300">{fertilizers.cost}</td>
-                <td className="border border-slate-300">{fertilizers.description}</td>
-                <td className="border border-slate-300 ">
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{fertilizers.name}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{fertilizers.cost}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{fertilizers.description}</td>
+                <td className="border border-slate-300 " style={{fontFamily:'Lobster Two'}}>
                   <img src={fertilizers.image} alt={fertilizers.name} className="w-20 h-20 object-cover mt-3 mb-3" />
                 </td>
-                <td className="border border-slate-300   "><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(fertilizers._id)}>Delete</button>
+                <td className="border border-slate-300 " style={{fontFamily:'Lobster Two'}}><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(fertilizers._id)}>Delete</button>
 </td>
-<td className="border border-slate-300   "><button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(fertilizers) }>Upadte</button>
+<td className="border border-slate-300   " style={{fontFamily:'Lobster Two'}}><button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(fertilizers) }>Upadte</button>
 </td>
               </tr>
             ))}

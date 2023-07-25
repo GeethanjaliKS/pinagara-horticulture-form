@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { deleteworkapi, viewworker } from './Routes/routes';
 import Workers from './Workers';
+import './App.css';
 
 function TableWorker() {
   const [workers, setWorkers] = useState([]);
@@ -63,29 +64,29 @@ function TableWorker() {
       <center>
       {(!updateForm )?
         <table className="border-collapse border border-slate-400 bg-slate-100">
-          <caption className="caption-top font-bold text-lg pt-10 font-serif">WORKERS DETAILS</caption>
+          <caption className="caption-top font-bold text-lg pt-10 font-serif" style={{fontFamily:'Righteous'}}>WORKERS DETAILS</caption>
           <thead>
             <tr>
-              <th className="border border-slate-300">NAME</th>
-              <th className="border border-slate-300">CONTACT</th>
-              <th className="border border-slate-300">EMAIL-ID </th>
-              <th className="border border-slate-300">ADDRESS</th>
-              <th className="border border-slate-300">IMAGE</th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>NAME</th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>CONTACT</th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>EMAIL-ID </th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>ADDRESS</th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>IMAGE</th>
             </tr>
           </thead>
           <tbody>
             {workers.map((workers) => (
               <tr key={workers._id}>
-                <td className="border border-slate-300">{workers.name}</td>
-                <td className="border border-slate-300">{workers.contact}</td>
-                <td className="border border-slate-300">{workers.email_id}</td>
-                <td className="border border-slate-300">{workers.address}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{workers.name}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{workers.contact}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{workers.email_id}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{workers.address}</td>
                 <td className="border border-slate-300 ">
                   <img src={workers.image} alt={workers.name} className="w-20 h-20 object-cover mt-3 mb-3" />
                 </td>
-                <td className="border border-slate-300   "><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(workers._id)}>Delete</button>
+                <td className="border border-slate-300" style={{fontFamily:'Tektur'}}><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(workers._id)}>Delete</button>
 </td>
-<td className="border border-slate-300   "><button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(workers) }>Upadte</button>
+<td className="border border-slate-300" style={{fontFamily:'Tektur'}}><button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(workers) }>Upadte</button>
 </td>
 
               </tr>

@@ -9,11 +9,11 @@ import "./App.css"
 
 function Team() {
   return (
-    <div className='mx-auto py-8 px-4 bg-green-300 w-full  mb-1 drop-shadow-2xl shadow-green'>
-    <h2 className="text-4xl  mb-4 font-bold text-center" style={{fontFamily:'Josefin Sans'}}>Our Team</h2> 
+    <div className='mx-auto py-8 px-4 bg-green-100 w-full  mb-1 drop-shadow-2xl '>
+    <h2 className="text-4xl  mb-4 font-bold text-center" style={{fontFamily:'Bitter'}}>Our Team</h2> 
     <div className='flex flex-wrap justify-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300  '>
       
-      <div className='w-full md:w-1/4 p-4'>
+      <div className='w-full md:w-1/4 p-4 '>
         <div className='block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 '>
           
           <a href='#!'>

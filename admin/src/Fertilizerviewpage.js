@@ -12,9 +12,8 @@ className="block rounded-lg bg-slate-300  p-6 drop-shadow-md hover:drop-shadow-x
   className="mb-2 text-2xl font-medium leading-tight text-neutral-800 dark:text-neutral-100  hover:font-bold " style={{fontFamily:'Bruno Ace SC'}}>
   Adding Fertilizer
 </h5><br/> <br/>
-<p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-  Some quick example text to build on the card title and make up the 
-  bulk of the card's content.
+<p className="mb-4 text-base text-neutral-600 dark:text-neutral-200 font-bold" style={{fontFamily:'Tukker'}}>
+Comprehensive Compilation of Fertilizer Details
 </p>
 <div className='text-end'>
 <Link to="/fertilizer" className="text-blue-500 font-bold font-serif hover:text-blue-900 text-2xl " style={{fontFamily:'Dancing Script'}}>

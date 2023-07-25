@@ -4,11 +4,14 @@ import { motion } from 'framer-motion';
 
 
 import './App.css';
-import { viewmembers } from './Routes/routes';
+import { viewmembers, vieworder, viewworker } from './Routes/routes';
 
 
  function Count() {
   const[totalCount,setTotalCount]=useState(0)
+  const[totalWorker,setTotalWorker]=useState(0)
+  const[totalOrder,setTotalOrder] =useState(0)
+ 
  
   useEffect(() => {
     const memberscount = async () => {
@@ -18,6 +21,11 @@ import { viewmembers } from './Routes/routes';
         // console.log(data)
         const {totalCount}=data.data;
         setTotalCount(totalCount)
+        
+        // const { totalWorker } = data.data;
+        // setTotalWorker(totalWorker); 
+        // console.log(totalWorker);
+        
       } catch (error) {
         console.error(error);
       }
@@ -26,12 +34,51 @@ import { viewmembers } from './Routes/routes';
    memberscount ();
   }, []);
 
+  useEffect(() => {
+  
+    const workercount = async () => {
+      try {
+        const response = await  viewworker();
+        const data = await response.json();
+        // console.log(data)
+       
+        
+        const { totalWorker } = data.data;
+        setTotalWorker(totalWorker); 
+        console.log(totalWorker);
+        
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
+   workercount ();
+  }, []);
+
+ useEffect(() => {
+  const totalorder = async () => {
+    try {
+      const response = await  vieworder();
+      const data = await response.json();
+      // console.log(data)
+     
+      
+      const { totalOrder } = data.data;
+      setTotalOrder(totalOrder); 
+      console.log(totalOrder);
+      
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+ totalorder ();
+}, []);
 
   return (
     
-    <div>
-<div className="pt-[10%]">
+    <div className=''>
+<div className="pt-[10%] ">
   <div className="cols">
     
   <div className="grid grid-cols-2 m-5 ">
@@ -42,7 +89,7 @@ import { viewmembers } from './Routes/routes';
       <div className='ele flex flex-col items-start justify-center ml-2'>
        
       <p style={{fontFamily:'Bitter '}} className='text-bold'>Total Member</p> 
-      <h1 style={{fontFamily:'Fredoka'}} className='indent-[10%]'>{totalCount}</h1> 
+      <h1 style={{fontFamily:'Fredoka'}} className='indent-[10%]'>{totalWorker}</h1> 
       
     
       </div>
@@ -56,7 +103,7 @@ import { viewmembers } from './Routes/routes';
       <div className='ele flex flex-col items-start justify-center ml-2'>
       <p style={{fontFamily:'Bitter '}} className='text-bold'>Total Order</p>
       
-      <h1 style={{fontFamily:'Fredoka '}} className='indent-5'>1000</h1>
+      <h1 style={{fontFamily:'Fredoka '}} className='indent-5'>{totalOrder}</h1>
       </div>
     </div>
     {/* </motion.div> */}
@@ -81,7 +128,7 @@ import { viewmembers } from './Routes/routes';
       <div className='ele flex flex-col items-start justify-center ml-2'>
       <p style={{fontFamily:'Bitter '}} className='text-bold'>Total Worker</p>
       
-      <h1 style={{fontFamily:'Fredoka '}} className='indent-0'>10000</h1>
+      <h1 style={{fontFamily:'Fredoka '}} className='indent-0'>{totalWorker}</h1>
       </div>
     </div>    
     {/* </motion.div> */}

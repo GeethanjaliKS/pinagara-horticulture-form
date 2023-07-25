@@ -67,40 +67,77 @@ export const viewfood =async(data)=>{
                 }
                 }
 
-//   export const viewcartdetails =async(data)=>{
-//                 try {
-//                     console.log('viewcartdetails',data)
-//                     return await fetch(`http://127.0.0.1:4001/viewcartdetails`,{
-//                             // mode: 'no-cors',
-//                             method:"GET",
-//                             body: JSON.stringify(data),
-//                             headers:{
-//                             "Content-Type":"application/json"
-            
-//                         },
-//                         })
-//                 } catch (error) {
-//                     console.log(error.message)
-//                 }
-//                 }
+                //delete cart item
+                export const deletecart =async(id)=>{
+                    try {
+                         console.log('data',id)
+                    
+                        return await fetch(`http://127.0.0.1:4001/deletecart/${id}`,{
+                                method:"DELETE",
+                                // body: JSON.stringify({_id:id}),
+                                headers:{
+                                "Content-Type":"application/json"
+                
+                            },
+                            });
+                          
+                    } catch (error) {
+                        console.log(error.message)
+                    }
+                    }
+
+                    export const orderdetails =async(data)=>{
+                        try {
+                            console.log('orderDetails',data)
+                            return await fetch(`http://127.0.0.1:4001/orderdetails`,{
+                                    // mode: 'no-cors',
+                                    method:"POST",
+                                    body: JSON.stringify(data),
+                                    headers:{
+                                    "Content-Type":"application/json"
+                    
+                                },
+                                })
+                        } catch (error) {
+                            console.log(error.message)
+                        }
+                        }
 
 
-            // export const storefood =async(data)=>{
-            //     try {
-            //         console.log('data',data)
-            //         return await fetch(`http://127.0.0.1:4001/cart`,{
-            //                 // mode: 'no-cors',
-            //                 method:"POST",
-            //                 body: JSON.stringify(data),
-            //                 headers:{
-            //                 "Content-Type":"application/json"
-            
-            //             },
-            //             })
-            //     } catch (error) {
-            //         console.log(error.message)
-            //     }
-            //     }
+                        export const allorder =async(data)=>{
+                            try {
+                                console.log('data',data)
+                                return await fetch(`http://127.0.0.1:4001/allorder`,{
+                                        // mode: 'no-cors',
+                                        method:"GET",
+                                        // body: JSON.stringify(data),
+                                        headers:{
+                                        "Content-Type":"application/json"
+                        
+                                    },
+                                    })
+                            } catch (error) {
+                                console.log(error.message)
+                            }
+                            }
+                    
+
+                            export const viewworker =async(data)=>{
+                                try {
+                                    console.log('data',data)
+                                    return await fetch(`http://127.0.0.1:4001/viewworker`,{
+                                            // mode: 'no-cors',
+                                            method:"GET",
+                                            // body: JSON.stringify(data),
+                                            headers:{
+                                            "Content-Type":"application/json"
+                            
+                                        },
+                                        })
+                                } catch (error) {
+                                    console.log(error.message)
+                                }
+                                }
     
     //user register
     export const usereg =async(data)=>{
@@ -142,3 +179,21 @@ export const viewfood =async(data)=>{
                 console.log(error.message)
             }
         }
+
+        export const itemcancel =async(id)=>{
+            try {
+                 console.log('order',id)
+            
+                return await fetch(`http://127.0.0.1:4001/itemcancel/${id}`,{
+                        method:"PATCH",
+                        body: JSON.stringify({_id:id}),
+                        headers:{
+                        "Content-Type":"application/json"
+        
+                    },
+                    });
+                  
+            } catch (error) {
+                console.log(error.message)
+            }
+            }

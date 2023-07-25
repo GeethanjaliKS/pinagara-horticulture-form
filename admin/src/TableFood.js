@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { deletefoodapi, viewfood } from './Routes/routes';
 import Food from './Food';
+import './App.css';
 
 function TableFood() {
   const [foods, setFoods] = useState([]);
@@ -69,24 +70,24 @@ const handleUpdate=(item)=>{
           <caption className="caption-top font-bold text-lg pt-10 font-serif">FOOD DETAILS</caption>
           <thead>
             <tr>
-              <th className="border border-slate-300">NAME</th>
-              <th className="border border-slate-300">COST</th>
-              <th className="border border-slate-300">DESCRIPTION </th>
-              <th className="border border-slate-300">IMAGE</th>
+              <th className="border border-slate-300" style={{fontFamily:'Tektur'}}>NAME</th>
+              <th className="border border-slate-300" style={{fontFamily:'Tektur'}}>COST</th>
+              <th className="border border-slate-300" style={{fontFamily:'Tektur'}}>DESCRIPTION </th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>IMAGE</th>
             </tr>
           </thead>
           <tbody>
             {foods.map((foods) => (
               <tr key={foods._id}>
-                <td className="border border-slate-300">{foods.name}</td>
-                <td className="border border-slate-300">{foods.cost}</td>
-                <td className="border border-slate-300">{foods.description}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{foods.name}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{foods.cost}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{foods.description}</td>
                 <td className="border border-slate-300 ">
                   <img src={foods.image} alt={foods.name} className="w-20 h-20 object-cover mt-3 mb-3" />
                 </td>
-                <td className="border border-slate-300   "><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(foods._id)}>Delete</button>
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(foods._id)}>Delete</button>
 </td>
-<td className="border border-slate-300   "><button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(foods) }>Upadte</button>
+<td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}><button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(foods) }>Upadte</button>
 </td>
               </tr>
             ))}

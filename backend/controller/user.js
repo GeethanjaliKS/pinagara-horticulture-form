@@ -2,6 +2,9 @@
 import user1 from '../model/UserModel.js'
 import cart from '../model/CartModel.js'
 import admin from '../model/AdminLoginModel.js';
+import bcrypt from 'bcrypt';
+
+
 export const usereg =  async (req,res) => {
     let { name, contact, address, email_id, password,image} = req.body
 
@@ -9,9 +12,11 @@ export const usereg =  async (req,res) => {
 
 
     try {
+      const saltRounds = 10; 
+      const hashedPassword = await bcrypt.hash(password, saltRounds);
 
         let newuser = new user1({
-        name:name, contact:contact, email_id:email_id, address:address, password:password,membership:false,image:image
+        name:name, contact:contact, email_id:email_id, address:address, password:hashedPassword,membership:false,image:image
 
         }) 
          console.log(newuser)
@@ -57,10 +62,12 @@ export const loginUser =  async (req,res) =>{
           { email_idOrContact: email_idOrContact },
         ],
       },
-      { password:password },
+      // { password:password },
     ],
   })
           console.log(user)
+
+          bcrypt.compare(password,user.password)
           // return res.status(200).json({message:"login successful"})
           
          if(user){

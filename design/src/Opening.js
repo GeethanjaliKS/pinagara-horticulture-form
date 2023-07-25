@@ -2,10 +2,10 @@ import React from 'react'
 
 function Opening() {
   return (
-    <div className=" mx-auto py-8 px-10 bg-green-300 w-full  mb-1 drop-shadow-2xl shadow-green-300 ">
+    <div className=" mx-auto py-8 px-10 bg-green-100 w-full  mb-1 drop-shadow-2xl shadow-green-300 ">
     <div className="flex flex-wrap ">
  <div className="w-full">
-   <h2 className="text-4xl   font-bold text-center" style={{fontFamily:'Josefin Sans'}}>Opening Hours</h2> 
+   <h2 className="text-4xl   font-bold text-center" style={{fontFamily:'Bitter'}}>Opening Hours</h2> 
 <br></br>
    <div>
    {/* <p className="mb-8">

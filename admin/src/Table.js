@@ -109,7 +109,7 @@ useEffect(() => {
   return (
     
     <div >
-      <h1  className="caption-top font-bold text-lg pt-10 font-serif pt-[10%] text-center">MEMBER DETAILS</h1>
+      <h1  className="caption-top font-bold text-lg pt-10 font-serif pt-[10%] text-center" style={{fontFamily:'Righteous'}}>MEMBER DETAILS</h1>
     <div className=''>
         <div className="mb-3 ">
         <input
@@ -128,15 +128,15 @@ useEffect(() => {
           
           <thead>
             <tr>
-            <th className="border border-slate-300">Member ID</th>
-              <th className="border border-slate-300">NAME</th>
-              <th className="border border-slate-300">ADDRESS</th>
-              <th className="border border-slate-300">CONTACT NUMBER</th>
-              <th className="border border-slate-300">EMAIL-ID</th>
-              <th className="border border-slate-300">IMAGE</th>
-              <th className="border border-slate-300">DELETE</th>
-              <th className="border border-slate-300">UPDATE</th>
-              <th className="border border-slate-300">MEMBERSHIP</th>
+            <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>Member ID</th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>NAME</th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>ADDRESS</th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>CONTACT NUMBER</th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>EMAIL-ID</th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>IMAGE</th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>DELETE</th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>UPDATE</th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>MEMBERSHIP</th>
             </tr>
           </thead>
           <tbody>
@@ -144,20 +144,20 @@ useEffect(() => {
             
               <tr key={member._id}>
               
-                <td className="border border-slate-300">{index}</td>
-                <td className="border border-slate-300">{member.name}</td>
-                <td className="border border-slate-300">{member.address}</td>
-                <td className="border border-slate-300">{member.contact}</td>
-                <td className="border border-slate-300">{member.email_id}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{index}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{member.name}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{member.address}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{member.contact}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{member.email_id}</td>
                 <td className="border border-slate-300 ">
                   <img src={member.image} alt={member.name} className="w-20 h-20 object-cover mt-3 mb-3" />
                 </td>
                 
-                <td className="border border-slate-300   "><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(member._id)}>Delete</button>
+                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(member._id)}>Delete</button>
 </td>
 
 
-<td className="border border-slate-300   "><button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(member) }>Upadte</button>
+<td className="border border-slate-300 " style={{fontFamily:'Lobster Two'}}><button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(member) }>Upadte</button>
 </td>
 
 
@@ -165,14 +165,14 @@ useEffect(() => {
   
 {!member.membership ? (
   <button
-  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
+  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" style={{fontFamily:'Lobster Two'}}
   onClick={() => handleMember(member._id)}
  >
   Add membership
  </button>
 ) : (
   <div>
-  <p className='font-bold text-green-600'>Membership added</p></div>
+  <p className='font-bold text-green-600' style={{fontFamily:'Lobster Two'}}>Membership added</p></div>
 )}
    
     

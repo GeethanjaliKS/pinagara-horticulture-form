@@ -14,13 +14,23 @@ import Opening from './Opening';
 import Cart from './Cart';
 import Register from './Register';
 import Login from './Login';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Viewprofile from './Viewprofile';
 import OrderView from './OrderView';
+import AddressForm from './AddressForm';
+import SimpleMap from './Contact';
+import OrderPage from './OrderPage';
+import Worker from './Worker';
+
 
 
 function App() {
   const [isLoggedIn,setIsLoggedIn] = useState(false)
+  useEffect(() => {
+  const user=localStorage.getItem("user");
+  if(user){
+    setIsLoggedIn(true);
+  }},[])
   return (
     <div> 
       
@@ -46,8 +56,12 @@ function App() {
    <Route exact path='/register' element={< Register />}></Route>
    <Route exact path='/cart' element={< Cart/>}></Route>
    <Route exact path='/login' element={< Login  setIsLoggedIn={setIsLoggedIn}/>}></Route>
-   <Route exact path='/viewprofile' element={< Viewprofile/>}></Route>
-   <Route exact path='/orderview' element={< OrderView/>}></Route>
+   <Route exact path='/viewprofile' element={< Viewprofile setIsLoggedIn={setIsLoggedIn}/>}></Route>
+   <Route exact path='/orderpage' element={< OrderPage/>}></Route>
+   <Route exact path='/addressform' element={< AddressForm/>}></Route>
+   <Route exact path='/contact' element={< SimpleMap/>}></Route>
+   <Route exact path='/worker' element={<Worker/>}></Route>
+
     </Routes>
     <Footer/>
     </BrowserRouter>

@@ -30,7 +30,7 @@ const handleSubmit =async (e) => {
     <div> 
            <div className="max-w-md mx-auto my-20 pt-[10%] ">
            {successMessage && <p className="text-green-500">{successMessage}</p>}
-      <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4">
+      <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 shadow-lg shadow-slate-700">
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-gray-700 font-bold mb-2" htmlFor="name">

@@ -1,6 +1,7 @@
 import React,{ useEffect, useState } from 'react';
 import { login } from './Routes/Route';
 import './App.css'
+import { useNavigate } from 'react-router-dom';
 
 const Login= ({setIsLoggedIn}) => {
   
@@ -11,6 +12,7 @@ const Login= ({setIsLoggedIn}) => {
   const [successMessage, setSuccessMessage] = useState(' ');
   const [errorMessage, setErrorMessage] = useState('');
   // const [items, setItems] = useState('');
+  let navigate = useNavigate();
   
 
   const handleSubmit = async (e) => {
@@ -26,11 +28,13 @@ const Login= ({setIsLoggedIn}) => {
       console.log(user)
       setSuccessMessage("user logged in successfully")
       setErrorMessage('')
+      navigate('/')
     }else 
     {
       setErrorMessage("Give correct information")
       setSuccessMessage('')
     }
+   
   
   })
 
@@ -39,7 +43,8 @@ const Login= ({setIsLoggedIn}) => {
   
    
   };
-
+  
+  
 
 	// API for get requests
 
@@ -52,12 +57,12 @@ const Login= ({setIsLoggedIn}) => {
   
 <div>
   
-    <div className="flex items-center justify-center min-h-screen bg-green-200">
-      <div className="w-full max-w-sm p-6 bg-white rounded shadow-md">
+    <div className="flex items-center justify-center min-h-screen bg-green-300">
+      <div className="w-full max-w-sm p-6 bg-white rounded shadow-md shadow-slate-600" style={{fontFamily:'Bitter'}}>
     
       {successMessage && <p className="text-green-500 font-bold text-2xl style={{fontFamily:'Caprasimo'}}">{successMessage}</p>}
         {errorMessage && <p className="text-red-500 font-bold text-2xl" style={{fontFamily:'Caprasimo'}}>{errorMessage}</p>}
-        <h1 className="text-2xl font-semibold text-center">Login</h1>
+        <h1 className="text-3xl font-semibold text-center ">Login</h1>
         <form className="mt-6" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="emailOrContact" className="block mb-1 font-medium">
@@ -93,9 +98,11 @@ const Login= ({setIsLoggedIn}) => {
               className="w-full px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none" onClick={handleSubmit}
             >
               Login
-            </button>
+            </button>  
+          
           </div>
         </form>
+
       </div>
       
     </div>

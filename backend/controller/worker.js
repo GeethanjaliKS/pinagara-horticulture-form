@@ -31,11 +31,13 @@ export const addworker =  async (req,res) => {
 export const viewworker= async (req, res) => {
     try {
       const workers = await worker.find();
+      const totalWorker= await worker.count();
+      console.log(totalWorker);
       res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
       res.status(200).json({
         status: 'success',
         data: {
-          workers,
+          workers,totalWorker
         },
       });
     } catch (err) {
