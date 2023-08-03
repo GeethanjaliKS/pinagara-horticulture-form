@@ -11,10 +11,10 @@ function Team() {
   return (
     <div className='mx-auto py-8 px-4 bg-green-100 w-full  mb-1 drop-shadow-2xl '>
     <h2 className="text-4xl  mb-4 font-bold text-center" style={{fontFamily:'Bitter'}}>Our Team</h2> 
-    <div className='flex flex-wrap justify-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300  '>
+    <div className='flex flex-wrap justify-center  '>
       
-      <div className='w-full md:w-1/4 p-4 '>
-        <div className='block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 '>
+      <div className='w-full md:w-1/4 p-4  ml-3 mr-3 '>
+        <div className='block rounded-lg bg-white  dark:bg-neutral-700 shadow-lg shadow-green-300 hover:shadow-green-600'>
           
           <a href='#!'>
             <img
@@ -24,10 +24,10 @@ function Team() {
             />
           </a>
           <div className='p-6 '>
-            <h5 className='mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50'>
+            <h5 className='mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50 text-center'>
               Mr.Ramakishore K
             </h5>
-            <p className='mb-4 text-base text-neutral-600 dark:text-neutral-200'>
+            <p className='mb-4 text-base text-neutral-600 dark:text-neutral-200 text-center'>
               Designation:President
             </p>
           </div>
@@ -35,7 +35,7 @@ function Team() {
       </div>
       
       <div className='w-full md:w-1/4 p-4'>
-        <div className='block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700'>
+        <div className='block rounded-lg bg-white  dark:bg-neutral-700 shadow-lg shadow-green-300 hover:shadow-green-600'>
           <a href='#!'>
             <img
               className='rounded-t-lg'
@@ -44,10 +44,10 @@ function Team() {
             />
           </a>
           <div className='p-6'>
-            <h5 className='mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50'>
+            <h5 className='mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50 text-center'>
               Mr.Pradeep S
             </h5>
-            <p className='mb-4 text-base text-neutral-600 dark:text-neutral-200'>
+            <p className='mb-4 text-base text-neutral-600 dark:text-neutral-200 text-center'>
            Designation:CEO
             </p>
           </div>
@@ -55,7 +55,7 @@ function Team() {
       </div>
 
       <div className='w-full md:w-1/4 p-4'>
-        <div className='block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700'>
+        <div className='block rounded-lg bg-white  dark:bg-neutral-700 shadow-lg shadow-green-300 hover:shadow-green-600'>
           <a href='#!'>
             <img
               className='rounded-t-lg'
@@ -64,10 +64,10 @@ function Team() {
             />
           </a>
           <div className='p-6'>
-            <h5 className='mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50'>
+            <h5 className='mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50 text-center'>
               Mr.Rajaram C G
             </h5>
-            <p className='mb-4 text-base text-neutral-600 dark:text-neutral-200'>
+            <p className='mb-4 text-base text-neutral-600 dark:text-neutral-200 text-center'>
            Designation:Director
             </p>
           </div>
@@ -75,7 +75,7 @@ function Team() {
       </div>
 
       <div className='w-full md:w-1/4 p-4'>
-        <div className='block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700'>
+        <div className='block rounded-lg bg-white  dark:bg-neutral-700 shadow-lg shadow-green-300 hover:shadow-green-600'>
           <a href='#!'>
             <img
               className='rounded-t-lg'
@@ -84,10 +84,10 @@ function Team() {
             />
           </a>
           <div className='p-6'>
-            <h5 className='mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50'>
+            <h5 className='mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50 text-center'>
               Mr.Rajaram C G
             </h5>
-            <p className='mb-4 text-base text-neutral-600 dark:text-neutral-200'>
+            <p className='mb-4 text-base text-neutral-600 dark:text-neutral-200 text-center'>
            Designation:Director
             </p>
           </div>
@@ -95,7 +95,7 @@ function Team() {
       </div>
 
       <div className='w-full md:w-1/4 p-4'>
-        <div className='block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700'>
+        <div className='block rounded-lg bg-white  dark:bg-neutral-700 shadow-lg shadow-green-300 hover:shadow-green-600'>
           <a href='#!'>
             <img
               className='rounded-t-lg'
@@ -104,10 +104,10 @@ function Team() {
             />
           </a>
           <div className='p-6'>
-            <h5 className='mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50'>
+            <h5 className='mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50 text-center'>
               Mr.Ramesh N
             </h5>
-            <p className='mb-4 text-base text-neutral-600 dark:text-neutral-200'>
+            <p className='mb-4 text-base text-neutral-600 dark:text-neutral-200 text-center'>
            Designation:Director
             </p>
           </div>
@@ -115,7 +115,7 @@ function Team() {
       </div>
 
       <div className='w-full md:w-1/4 p-4'>
-        <div className='block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700'>
+        <div className='block rounded-lg bg-white  dark:bg-neutral-700 shadow-lg shadow-green-300 hover:shadow-green-600'>
           <a href='#!'>
             <img
               className='rounded-t-lg'
@@ -124,10 +124,10 @@ function Team() {
             />
           </a>
           <div className='p-6'>
-            <h5 className='mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50'>
+            <h5 className='mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50 text-center'>
               Mrs.Pushpha S Kamath
             </h5>
-            <p className='mb-4 text-base text-neutral-600 dark:text-neutral-200'>
+            <p className='mb-4 text-base text-neutral-600 dark:text-neutral-200 text-center'>
            Designation:Director
             </p>
           </div>

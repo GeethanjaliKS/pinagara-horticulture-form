@@ -74,21 +74,23 @@ const handleUpdate=(item)=>{
               <th className="border border-slate-300" style={{fontFamily:'Tektur'}}>COST</th>
               <th className="border border-slate-300" style={{fontFamily:'Tektur'}}>DESCRIPTION </th>
               <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>IMAGE</th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>ACTIVITY</th>
             </tr>
           </thead>
           <tbody>
             {foods.map((foods) => (
               <tr key={foods._id}>
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{foods.name}</td>
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{foods.cost}</td>
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{foods.description}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}>{foods.name}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}>{foods.cost}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}>{foods.description}</td>
                 <td className="border border-slate-300 ">
                   <img src={foods.image} alt={foods.name} className="w-20 h-20 object-cover mt-3 mb-3" />
                 </td>
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(foods._id)}>Delete</button>
-</td>
-<td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}><button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(foods) }>Upadte</button>
-</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(foods._id)}>Delete</button>
+                <button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(foods) }>Upadte</button>
+
+                </td>
+
               </tr>
             ))}
           </tbody>

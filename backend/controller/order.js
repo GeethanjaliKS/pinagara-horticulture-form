@@ -36,7 +36,7 @@ export const orderdetails =  async (req,res) => {
 
 export const allorder= async (req, res) => {
   try {
-    const orders = await order.find();
+    const orders = await order.find().sort({ orderplacedate: -1 });
     const totalOrder=await order.count();
     // console.log(totalOrder)
     

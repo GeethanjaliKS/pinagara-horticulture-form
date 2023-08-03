@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { allorder, itemcancel } from './Routes/Route';
 import './App.css'
+// import { MailOptions } from 'nodemailer/lib/json-transport';
 
 function OrderPage() {
   const [orderView, setOrderView] = useState([]);
-  const [orderstatus,setOrderStatus]=useState('');
+  const [orderstatus,setOrderStatus]=useState([]);
+  console.log(orderstatus)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,10 +34,11 @@ function OrderPage() {
       // console.log('member', data);
     //  setMembership(true)
     // setUpdateOrder(true)
-
-     const filteredOrder = itemcancel.filter((orderItem) => orderItem._id !== id);
-    console.log('details', filteredOrder);
-    setOrderStatus(filteredOrder);
+    
+     const filteredOrder = orderstatus.filter((orderItem) => orderItem._id !== id);
+     console.log('details', filteredOrder);
+  setOrderStatus(filteredOrder);
+  console.log('order',orderstatus)
   } catch (error) {
       console.log(error.message);
       console.log('Error updating membership');

@@ -22,6 +22,8 @@ import SimpleMap from './Contact';
 import OrderPage from './OrderPage';
 import Worker from './Worker';
 
+import PaymentForm from './payment';
+
 
 
 function App() {
@@ -31,12 +33,13 @@ function App() {
   if(user){
     setIsLoggedIn(true);
   }},[])
+  
   return (
     <div> 
       
       <BrowserRouter>
       <Header isLoggedIn={isLoggedIn}/><br/><br/><br/>
-      
+      {/* <Login setIsLoggedIn={setIsLoggedIn} /> */}
       {/* <About/>
       <Team/>
       <Product/>
@@ -52,7 +55,7 @@ function App() {
    <Route exact path='/fertilizer' element={< Fertilizercart />}></Route>
    <Route exact path='/' element={< Home />}></Route>
    <Route exact path='/carousel' element={< CarouselExample />}></Route>
-   <Route exact path='/opening' element={< Opening />}></Route>
+   {/* <Route exact path='/opening' element={< Opening />}></Route> */}
    <Route exact path='/register' element={< Register />}></Route>
    <Route exact path='/cart' element={< Cart/>}></Route>
    <Route exact path='/login' element={< Login  setIsLoggedIn={setIsLoggedIn}/>}></Route>
@@ -61,6 +64,7 @@ function App() {
    <Route exact path='/addressform' element={< AddressForm/>}></Route>
    <Route exact path='/contact' element={< SimpleMap/>}></Route>
    <Route exact path='/worker' element={<Worker/>}></Route>
+   <Route exact path='/payment' element={<PaymentForm/>}></Route>
 
     </Routes>
     <Footer/>

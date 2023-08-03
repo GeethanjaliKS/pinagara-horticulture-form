@@ -50,7 +50,7 @@ export const usereg =  async (req,res) => {
 export const loginUser =  async (req,res) =>{
 
     const { email_idOrContact, password } = req.body;
-    console.log(req.body)
+    console.log('login',req.body)
 
     try{
       
@@ -62,7 +62,8 @@ export const loginUser =  async (req,res) =>{
           { email_idOrContact: email_idOrContact },
         ],
       },
-      // { password:password },
+     
+      { password:password},
     ],
   })
           console.log(user)
@@ -71,6 +72,7 @@ export const loginUser =  async (req,res) =>{
           // return res.status(200).json({message:"login successful"})
           
          if(user){
+
           return res.status(200).json({message:"login successful",data:user})
          } else
          {

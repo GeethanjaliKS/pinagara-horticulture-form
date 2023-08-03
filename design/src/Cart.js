@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { deletecart, viewcart } from './Routes/Route';
 import AddressForm from './AddressForm';
+import { Cart2 } from 'react-bootstrap-icons';
 import './App.css';
 
 
@@ -36,8 +37,8 @@ const CartItem = ({ item, onQuantityChange, itemDetails, setItemDetails,handleBu
   
 
   return (
-    <div className=' m-[2%]'>
-<div className='grid grid-cols-3 gap-6 w-full h-50 rounded pt-[2%] border' >
+    <div className=' ml-[2%] mr-[2%]'>
+<div className='grid grid-cols-3  w-full  rounded pt-[2%] flex items-center p-4   ' >
 
     <div className="p-4 m-2  ">
       
@@ -140,8 +141,11 @@ const filteredItemDetails = itemDetails.filter((item) =>
   {addressForm ? (
   <AddressForm itemDetails={itemDetails} />
 ) : (
-  <div>
-    <h1 className='font-bold  text-4xl inline-block transform -skew-x-10  ml-5 ' style={{fontFamily:'Bitter'}}>Shopping Cart</h1>
+  <div >
+    <div className=' m-6  flex items-center'>
+    <h1 className='font-bold  text-4xl mr-2' style={{fontFamily:'Bitter'}}>
+      Shopping Cart
+      </h1>  <Cart2 size={40}/> </div>
     
   <div className="mb-3 ">
         <input
@@ -168,8 +172,8 @@ const filteredItemDetails = itemDetails.filter((item) =>
  
   
   <h3 className='font-bold mb-2'style={{fontFamily:'Norican'}}>TOTAL AMOUNT: ${totalAmount}</h3>
-
-  <button className="px-10 py-1  text-white rounded mb-5 bg-green-300 hover:bg-green-600 mb-[25%] " 
+ 
+  <button className="px-10 py-1  text-white rounded mb-5 bg-green-400 hover:bg-green-600 mb-[25%] " 
     onClick={handleBuyNow} style={{fontFamily:'Norican'}}
   >
     BuyNow

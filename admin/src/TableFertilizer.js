@@ -72,21 +72,23 @@ function TableFertilizer() {
               <th className="border border-slate-300" style={{fontFamily:'Tektur'}}>COST</th>
               <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>DESCRIPTION </th>
               <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>IMAGE</th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>ACTIVITY</th>
             </tr>
           </thead>
           <tbody>
             {fertilizers.map((fertilizers) => (
               <tr key={fertilizers._id}>
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{fertilizers.name}</td>
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{fertilizers.cost}</td>
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{fertilizers.description}</td>
-                <td className="border border-slate-300 " style={{fontFamily:'Lobster Two'}}>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}>{fertilizers.name}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}>{fertilizers.cost}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}>{fertilizers.description}</td>
+                <td className="border border-slate-300 " style={{fontFamily:'Poppins'}}>
                   <img src={fertilizers.image} alt={fertilizers.name} className="w-20 h-20 object-cover mt-3 mb-3" />
                 </td>
-                <td className="border border-slate-300 " style={{fontFamily:'Lobster Two'}}><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(fertilizers._id)}>Delete</button>
-</td>
-<td className="border border-slate-300   " style={{fontFamily:'Lobster Two'}}><button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(fertilizers) }>Upadte</button>
-</td>
+                <td className="border border-slate-300 " style={{fontFamily:'Poppins'}}><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(fertilizers._id)}>Delete</button>
+                <button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(fertilizers) }>Upadte</button>
+                </td>
+
+
               </tr>
             ))}
           </tbody>

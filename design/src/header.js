@@ -8,6 +8,11 @@ import "./App.css"
 const Header = ({ isLoggedIn }) => {
 
 const [toggle,setToggle]=useState(false);
+const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+const toggleDropdown = () => {
+  setDropdownOpen((prevState) => !prevState);
+};
 const handleClick =()=>{
   setToggle(!toggle);
 };
@@ -21,7 +26,7 @@ const handleClick =()=>{
         {/* <Link to="/" className="text-white font-bold text-xl"> */}
           <img src={pic} alt=" " height={80} width={80} />
         {/* </Link> */}
-        <nav className="flex space-x-3  space-y-5  relative ">
+        <nav className="flex space-x-6  space-y-4  relative ">
          <div className=' visible md:invisible absolute top-0 right-0' > 
          
             
@@ -34,19 +39,19 @@ const handleClick =()=>{
             style={{fontFamily:'Bruno Ace SC' }} >
             Home
           </Link>
-          <Link
+          {/* <Link
             to="/fertilizer"
             className="text-blue-900 hover:text-gray-950 font-medium text-base  invisible md:visible"
             style={{fontFamily:'Bruno Ace SC'}}  >
             Fertilizer
-          </Link>
+          </Link> */}
 
-          <Link
+          {/* <Link
             to="/foodcard"
             className="text-blue-900 hover:text-gray-950 font-medium text-base font-serif invisible md:visible"
             style={{fontFamily:'Bruno Ace SC'}}   >
             Snacks
-          </Link>
+          </Link> */}
 
           <Link
             to="/contact"
@@ -68,6 +73,54 @@ const handleClick =()=>{
             Worker
           </Link>
 
+             
+          <div className="relative">
+      {/* Dropdown Button */}
+      <button
+        onClick={toggleDropdown}
+        className="text-blue-900 hover:text-gray-950 font-medium text-base   invisible md:visible " 
+            style={{fontFamily:'Bruno Ace SC' }}
+      >
+        Details
+      </button>
+
+      {/* Dropdown Content */}
+      <div
+        className={`origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 ${
+          isDropdownOpen ? 'block' : 'hidden'
+        }`}
+      >
+        <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+          {/* Dropdown Items */}
+          <a
+            href="/foodcard"
+            className="block px-4 py-2 text-sm  text-blue-900 hover:text-gray-950 font-medium text-base   invisible md:visible"
+            style={{fontFamily:'Bruno Ace SC' }}
+            role="menuitem"
+          >
+            Snacks
+          </a>
+          <a
+            href="/fertilizer"
+            className="block px-4 py-2 text-sm  text-blue-900 hover:text-gray-950 font-medium text-base   invisible md:visible"
+            style={{fontFamily:'Bruno Ace SC' }}
+            role="menuitem"
+          >
+          Fertilizer
+          </a>
+
+          <a
+            href="/orderpage"
+            className="block px-4 py-2 text-sm  text-blue-900 hover:text-gray-950 font-medium text-base   invisible md:visible"
+            style={{fontFamily:'Bruno Ace SC' }}
+            role="menuitem"
+          >
+            Orders
+          </a>
+        </div>
+      </div>
+    </div>
+
           {isLoggedIn ? (
           <>
              <Link to="/cart" className="text-blue-900 hover:text-gray-950 font-medium text-base font-serif invisible md:visible">
@@ -81,7 +134,7 @@ const handleClick =()=>{
         ) :(
           
           <Link to="/register">
-            <button type="button" className="text-white hover:text-gray-950 bg-gradient-to-r from-green-200 via-green-400 to-green-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-4 py-2 text-center mr-4 mb-4 w-30 invisible md:visible"style={{fontFamily:'Bruno Ace SC'}}   >Register</button>
+            <button type="button" className="text-blue-900 hover:text-gray-950  bg-gradient-to-r from-green-200 via-green-400 to-green-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-4 py-2 text-center mr-4 mb-4 w-30 invisible md:visible"style={{fontFamily:'Bruno Ace SC'}}   >Register</button>
             </Link>
         )}
 

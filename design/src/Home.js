@@ -15,7 +15,7 @@ function Home() {
 <Team/>
 <Foodcard/>
 <Fertilizercart/>
-<Opening/>
+{/* <Opening/> */}
 
 
     </div>

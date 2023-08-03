@@ -13,6 +13,7 @@ const Login= ({setIsLoggedIn}) => {
   const [errorMessage, setErrorMessage] = useState('');
   // const [items, setItems] = useState('');
   let navigate = useNavigate();
+ 
   
 
   const handleSubmit = async (e) => {
@@ -25,7 +26,7 @@ const Login= ({setIsLoggedIn}) => {
       setIsLoggedIn(true)
       localStorage.setItem("user",JSON.stringify(res.data))
       const user=localStorage.getItem("user")
-      console.log(user)
+      console.log('login',user)
       setSuccessMessage("user logged in successfully")
       setErrorMessage('')
       navigate('/')

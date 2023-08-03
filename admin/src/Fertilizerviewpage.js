@@ -27,7 +27,7 @@ Comprehensive Compilation of Fertilizer Details
         </div> */}
 </div>
 
-<div className='pt-[5%]  '>
+<div className='pt-[5%] mb-10 '>
 <div
   className="block rounded-lg bg-slate-300  p-6 drop-shadow-md hover:drop-shadow-xl duration-300 dark:bg-neutral-800  md:w-1/2 ">
 <h5

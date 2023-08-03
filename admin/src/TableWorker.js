@@ -72,22 +72,24 @@ function TableWorker() {
               <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>EMAIL-ID </th>
               <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>ADDRESS</th>
               <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>IMAGE</th>
+              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>ACTIVITY</th>
             </tr>
           </thead>
           <tbody>
             {workers.map((workers) => (
               <tr key={workers._id}>
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{workers.name}</td>
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{workers.contact}</td>
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{workers.email_id}</td>
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{workers.address}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}>{workers.name}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}>{workers.contact}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}>{workers.email_id}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}>{workers.address}</td>
                 <td className="border border-slate-300 ">
                   <img src={workers.image} alt={workers.name} className="w-20 h-20 object-cover mt-3 mb-3" />
                 </td>
-                <td className="border border-slate-300" style={{fontFamily:'Tektur'}}><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(workers._id)}>Delete</button>
-</td>
-<td className="border border-slate-300" style={{fontFamily:'Tektur'}}><button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(workers) }>Upadte</button>
-</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(workers._id)}>Delete</button>
+                <button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(workers) }>Upadte</button>
+
+              </td>
+
 
               </tr>
             ))}

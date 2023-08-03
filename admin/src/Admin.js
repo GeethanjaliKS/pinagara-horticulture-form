@@ -95,9 +95,9 @@ const Admin = () => {
       {/* Dropdown Button */}
       <button
         onClick={toggleDropdown}
-        className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded focus:outline-none"
+        className="text-white hover:text-gray-200 text-white font-medium "
       >
-        Order Details
+        Order Details 
       </button>
 
       {/* Dropdown Content */}

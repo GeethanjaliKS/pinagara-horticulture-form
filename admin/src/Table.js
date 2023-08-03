@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { addmembership, updatemember, viewmembers } from './Routes/routes';
 import { deletememberapi } from './Routes/routes';
 import Member from './Member';
-
+import './App.css'
 
 function Table() {
   const [members, setMembers] = useState([]);
@@ -134,8 +134,8 @@ useEffect(() => {
               <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>CONTACT NUMBER</th>
               <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>EMAIL-ID</th>
               <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>IMAGE</th>
-              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>DELETE</th>
-              <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>UPDATE</th>
+              <th className=" "style={{fontFamily:'Tektur'}}>ACTIVITY</th>
+             
               <th className="border border-slate-300"style={{fontFamily:'Tektur'}}>MEMBERSHIP</th>
             </tr>
           </thead>
@@ -144,35 +144,36 @@ useEffect(() => {
             
               <tr key={member._id}>
               
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{index}</td>
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{member.name}</td>
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{member.address}</td>
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{member.contact}</td>
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}>{member.email_id}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}>{index}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}>{member.name}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}>{member.address}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}>{member.contact}</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}>{member.email_id}</td>
                 <td className="border border-slate-300 ">
                   <img src={member.image} alt={member.name} className="w-20 h-20 object-cover mt-3 mb-3" />
                 </td>
                 
-                <td className="border border-slate-300" style={{fontFamily:'Lobster Two'}}><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(member._id)}>Delete</button>
-</td>
+                <td className="border border-slate-300" style={{fontFamily:'Poppins'}}><button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleDelete(member._id)}>Delete</button>
+
+                <button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(member) }>Upadte</button>
+                </td>
 
 
-<td className="border border-slate-300 " style={{fontFamily:'Lobster Two'}}><button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full' onClick={() => handleUpdate(member) }>Upadte</button>
-</td>
+
 
 
 <td>
   
 {!member.membership ? (
   <button
-  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" style={{fontFamily:'Lobster Two'}}
+  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" style={{fontFamily:'Poppins'}}
   onClick={() => handleMember(member._id)}
  >
   Add membership
  </button>
 ) : (
   <div>
-  <p className='font-bold text-green-600' style={{fontFamily:'Lobster Two'}}>Membership added</p></div>
+  <p className='font-bold text-green-600' style={{fontFamily:'Poppins'}}>Membership added</p></div>
 )}
    
     
